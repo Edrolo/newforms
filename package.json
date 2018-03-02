@@ -42,13 +42,14 @@
     "gulp-uglify": "^1.1.0",
     "gulp-util": "^3.0.2",
     "jshint-stylish": "^1.0.0",
+    "prop-types": "^15.6.1",
     "qqunit": "^0.6.0",
-    "react": ">=0.14.0",
-    "react-dom": ">=0.14.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
     "vinyl-source-stream": "^1.0.0"
   },
   "peerDependencies": {
-    "react": ">=0.14.0"
+    "react": "^16.2.0"
   },
   "scripts": {
     "dist": "gulp browserify-js --production --release && gulp browserify-js --development --release",

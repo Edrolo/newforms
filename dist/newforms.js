@@ -92,7 +92,7 @@ module.exports = {
 , validators: validators
 , Widget: require('./Widget')
 }
-},{"./BaseTemporalField":2,"./BooleanField":3,"./BoundField":4,"./CharField":5,"./CheckboxChoiceInput":6,"./CheckboxFieldRenderer":7,"./CheckboxInput":8,"./CheckboxSelectMultiple":9,"./ChoiceField":10,"./ChoiceFieldRenderer":11,"./ChoiceInput":12,"./ClearableFileInput":13,"./ComboField":14,"./DateField":15,"./DateInput":16,"./DateTimeBaseInput":17,"./DateTimeField":18,"./DateTimeInput":19,"./DecimalField":20,"./EmailField":22,"./EmailInput":23,"./ErrorList":24,"./ErrorObject":25,"./Field":26,"./FileField":27,"./FileInput":28,"./FilePathField":29,"./FloatField":30,"./Form":31,"./FormRow":32,"./FormSet":33,"./GenericIPAddressField":34,"./HiddenInput":35,"./IPAddressField":36,"./ImageField":37,"./Input":38,"./IntegerField":39,"./MultiValueField":40,"./MultiWidget":41,"./MultipleChoiceField":42,"./MultipleFileField":43,"./MultipleHiddenInput":44,"./NullBooleanField":45,"./NullBooleanSelect":46,"./NumberInput":47,"./PasswordInput":48,"./RadioChoiceInput":50,"./RadioFieldRenderer":51,"./RadioSelect":52,"./RegexField":53,"./RenderForm":54,"./RenderFormSet":55,"./RendererMixin":56,"./Select":57,"./SelectMultiple":58,"./SlugField":59,"./SplitDateTimeField":60,"./SplitDateTimeWidget":61,"./SplitHiddenDateTimeWidget":62,"./SubWidget":63,"./TextInput":64,"./Textarea":65,"./TimeField":66,"./TimeInput":67,"./TypedChoiceField":68,"./TypedMultipleChoiceField":69,"./URLField":70,"./Widget":72,"./env":74,"./formats":75,"./isFormAsync":76,"./locales":77,"./util":78,"validators":89}],2:[function(require,module,exports){
+},{"./BaseTemporalField":2,"./BooleanField":3,"./BoundField":4,"./CharField":5,"./CheckboxChoiceInput":6,"./CheckboxFieldRenderer":7,"./CheckboxInput":8,"./CheckboxSelectMultiple":9,"./ChoiceField":10,"./ChoiceFieldRenderer":11,"./ChoiceInput":12,"./ClearableFileInput":13,"./ComboField":14,"./DateField":15,"./DateInput":16,"./DateTimeBaseInput":17,"./DateTimeField":18,"./DateTimeInput":19,"./DecimalField":20,"./EmailField":22,"./EmailInput":23,"./ErrorList":24,"./ErrorObject":25,"./Field":26,"./FileField":27,"./FileInput":28,"./FilePathField":29,"./FloatField":30,"./Form":31,"./FormRow":32,"./FormSet":33,"./GenericIPAddressField":34,"./HiddenInput":35,"./IPAddressField":36,"./ImageField":37,"./Input":38,"./IntegerField":39,"./MultiValueField":40,"./MultiWidget":41,"./MultipleChoiceField":42,"./MultipleFileField":43,"./MultipleHiddenInput":44,"./NullBooleanField":45,"./NullBooleanSelect":46,"./NumberInput":47,"./PasswordInput":48,"./RadioChoiceInput":49,"./RadioFieldRenderer":50,"./RadioSelect":51,"./RegexField":52,"./RenderForm":53,"./RenderFormSet":54,"./RendererMixin":55,"./Select":56,"./SelectMultiple":57,"./SlugField":58,"./SplitDateTimeField":59,"./SplitDateTimeWidget":60,"./SplitHiddenDateTimeWidget":61,"./SubWidget":62,"./TextInput":63,"./Textarea":64,"./TimeField":65,"./TimeInput":66,"./TypedChoiceField":67,"./TypedMultipleChoiceField":68,"./URLField":69,"./Widget":71,"./env":73,"./formats":74,"./isFormAsync":75,"./locales":76,"./util":77,"validators":97}],2:[function(require,module,exports){
 'use strict';
 
 var is = require('isomorph/is')
@@ -177,7 +177,7 @@ BaseTemporalField.prototype._hasChanged = function(initial, data) {
 
 
 module.exports = BaseTemporalField
-},{"./Field":26,"./formats":75,"./locales":77,"./util":78,"isomorph/is":84,"isomorph/object":85,"isomorph/time":86,"validators":89}],3:[function(require,module,exports){
+},{"./Field":26,"./formats":74,"./locales":76,"./util":77,"isomorph/is":86,"isomorph/object":87,"isomorph/time":88,"validators":97}],3:[function(require,module,exports){
 'use strict';
 
 var is = require('isomorph/is')
@@ -231,14 +231,14 @@ BooleanField.prototype._hasChanged = function(initial, data) {
 }
 
 module.exports = BooleanField
-},{"./CheckboxInput":8,"./Field":26,"isomorph/is":84,"validators":89}],4:[function(require,module,exports){
+},{"./CheckboxInput":8,"./Field":26,"isomorph/is":86,"validators":97}],4:[function(require,module,exports){
 'use strict';
 
 var Concur = require('Concur')
 var is = require('isomorph/is')
 var format = require('isomorph/format').formatObj
 var object = require('isomorph/object')
-var React = (typeof window !== "undefined" ? window.React : typeof global !== "undefined" ? global.React : null)
+var React = (typeof window !== "undefined" ? window['React'] : typeof global !== "undefined" ? global['React'] : null)
 
 var TextInput = require('./TextInput')
 var Textarea = require('./Textarea')
@@ -657,7 +657,7 @@ BoundField.prototype._getValidation = function(widget) {
 }
 
 module.exports = BoundField
-},{"./TextInput":64,"./Textarea":65,"./util":78,"Concur":79,"isomorph/format":83,"isomorph/is":84,"isomorph/object":85}],5:[function(require,module,exports){
+},{"./TextInput":63,"./Textarea":64,"./util":77,"Concur":78,"isomorph/format":85,"isomorph/is":86,"isomorph/object":87}],5:[function(require,module,exports){
 'use strict';
 
 var object = require('isomorph/object')
@@ -716,7 +716,7 @@ CharField.prototype.getWidgetAttrs = function(widget) {
 }
 
 module.exports = CharField
-},{"./Field":26,"./PasswordInput":48,"./TextInput":64,"isomorph/object":85,"validators":89}],6:[function(require,module,exports){
+},{"./Field":26,"./PasswordInput":48,"./TextInput":63,"isomorph/object":87,"validators":97}],6:[function(require,module,exports){
 'use strict';
 
 var is = require('isomorph/is')
@@ -744,7 +744,7 @@ CheckboxChoiceInput.prototype.isChecked = function() {
 }
 
 module.exports = CheckboxChoiceInput
-},{"./ChoiceInput":12,"isomorph/is":84}],7:[function(require,module,exports){
+},{"./ChoiceInput":12,"isomorph/is":86}],7:[function(require,module,exports){
 'use strict';
 
 var CheckboxChoiceInput = require('./CheckboxChoiceInput')
@@ -766,7 +766,7 @@ module.exports = CheckboxFieldRenderer
 
 var is = require('isomorph/is')
 var object = require('isomorph/object')
-var React = (typeof window !== "undefined" ? window.React : typeof global !== "undefined" ? global.React : null)
+var React = (typeof window !== "undefined" ? window['React'] : typeof global !== "undefined" ? global['React'] : null)
 
 var Widget = require('./Widget')
 
@@ -820,7 +820,7 @@ CheckboxInput.prototype.valueFromData = function(data, files, name) {
 }
 
 module.exports = CheckboxInput
-},{"./Widget":72,"isomorph/is":84,"isomorph/object":85}],9:[function(require,module,exports){
+},{"./Widget":71,"isomorph/is":86,"isomorph/object":87}],9:[function(require,module,exports){
 'use strict';
 
 var CheckboxFieldRenderer = require('./CheckboxFieldRenderer')
@@ -845,7 +845,7 @@ var CheckboxSelectMultiple = SelectMultiple.extend({
 })
 
 module.exports = CheckboxSelectMultiple
-},{"./CheckboxFieldRenderer":7,"./RendererMixin":56,"./SelectMultiple":58}],10:[function(require,module,exports){
+},{"./CheckboxFieldRenderer":7,"./RendererMixin":55,"./SelectMultiple":57}],10:[function(require,module,exports){
 'use strict';
 
 var is = require('isomorph/is')
@@ -927,13 +927,13 @@ ChoiceField.prototype.validValue = function(value) {
 }
 
 module.exports = ChoiceField
-},{"./Field":26,"./Select":57,"./util":78,"isomorph/is":84,"isomorph/object":85,"validators":89}],11:[function(require,module,exports){
+},{"./Field":26,"./Select":56,"./util":77,"isomorph/is":86,"isomorph/object":87,"validators":97}],11:[function(require,module,exports){
 'use strict';
 
 var Concur = require('Concur')
 var is = require('isomorph/is')
 var object = require('isomorph/object')
-var React = (typeof window !== "undefined" ? window.React : typeof global !== "undefined" ? global.React : null)
+var React = (typeof window !== "undefined" ? window['React'] : typeof global !== "undefined" ? global['React'] : null)
 
 /**
  * An object used by choice Selects to enable customisation of choice widgets.
@@ -1023,11 +1023,11 @@ ChoiceFieldRenderer.prototype.render = function() {
 }
 
 module.exports = ChoiceFieldRenderer
-},{"Concur":79,"isomorph/is":84,"isomorph/object":85}],12:[function(require,module,exports){
+},{"Concur":78,"isomorph/is":86,"isomorph/object":87}],12:[function(require,module,exports){
 'use strict';
 
 var object = require('isomorph/object')
-var React = (typeof window !== "undefined" ? window.React : typeof global !== "undefined" ? global.React : null)
+var React = (typeof window !== "undefined" ? window['React'] : typeof global !== "undefined" ? global['React'] : null)
 
 var SubWidget = require('./SubWidget')
 var Widget = require('./Widget')
@@ -1087,11 +1087,11 @@ ChoiceInput.prototype.idForLabel = function() {
 }
 
 module.exports = ChoiceInput
-},{"./SubWidget":63,"./Widget":72,"isomorph/object":85}],13:[function(require,module,exports){
+},{"./SubWidget":62,"./Widget":71,"isomorph/object":87}],13:[function(require,module,exports){
 'use strict';
 
 var object = require('isomorph/object')
-var React = (typeof window !== "undefined" ? window.React : typeof global !== "undefined" ? global.React : null)
+var React = (typeof window !== "undefined" ? window['React'] : typeof global !== "undefined" ? global['React'] : null)
 
 var CheckboxInput = require('./CheckboxInput')
 var FileInput = require('./FileInput')
@@ -1202,7 +1202,7 @@ ClearableFileInput.prototype.valueFromData = function(data, files, name) {
 }
 
 module.exports = ClearableFileInput
-},{"./CheckboxInput":8,"./FileInput":28,"./util":78,"isomorph/object":85}],14:[function(require,module,exports){
+},{"./CheckboxInput":8,"./FileInput":28,"./util":77,"isomorph/object":87}],14:[function(require,module,exports){
 'use strict';
 
 var object = require('isomorph/object')
@@ -1238,7 +1238,7 @@ ComboField.prototype.clean = function(value) {
 }
 
 module.exports = ComboField
-},{"./Field":26,"isomorph/object":85}],15:[function(require,module,exports){
+},{"./Field":26,"isomorph/object":87}],15:[function(require,module,exports){
 'use strict';
 
 var BaseTemporalField = require('./BaseTemporalField')
@@ -1338,7 +1338,7 @@ DateTimeBaseInput.prototype._formatValue = function(value) {
 }
 
 module.exports = DateTimeBaseInput
-},{"./TextInput":64,"./formats":75,"./locales":77,"isomorph/is":84,"isomorph/object":85,"isomorph/time":86}],18:[function(require,module,exports){
+},{"./TextInput":63,"./formats":74,"./locales":76,"isomorph/is":86,"isomorph/object":87,"isomorph/time":88}],18:[function(require,module,exports){
 'use strict';
 
 var is = require('isomorph/is')
@@ -1395,7 +1395,7 @@ DateTimeField.prototype.toJavaScript = function(value) {
 
 
 module.exports = DateTimeField
-},{"./BaseTemporalField":2,"./DateTimeInput":19,"isomorph/is":84,"validators":89}],19:[function(require,module,exports){
+},{"./BaseTemporalField":2,"./DateTimeInput":19,"isomorph/is":86,"validators":97}],19:[function(require,module,exports){
 'use strict';
 
 var DateTimeBaseInput = require('./DateTimeBaseInput')
@@ -1559,7 +1559,7 @@ DecimalField.prototype.getWidgetAttrs = function(widget) {
 }
 
 module.exports = DecimalField
-},{"./Field":26,"./IntegerField":39,"./util":78,"isomorph/object":85,"validators":89}],21:[function(require,module,exports){
+},{"./Field":26,"./IntegerField":39,"./util":77,"isomorph/object":87,"validators":97}],21:[function(require,module,exports){
 'use strict';
 
 var is = require('isomorph/is')
@@ -1660,7 +1660,7 @@ function DeclarativeFieldsMeta(prototypeProps) {
 }
 
 module.exports = DeclarativeFieldsMeta
-},{"./Field":26,"isomorph/is":84,"isomorph/object":85}],22:[function(require,module,exports){
+},{"./Field":26,"isomorph/is":86,"isomorph/object":87}],22:[function(require,module,exports){
 'use strict';
 
 var util = require('./util')
@@ -1693,7 +1693,7 @@ EmailField.prototype.clean = function(value) {
 
 
 module.exports = EmailField
-},{"./CharField":5,"./EmailInput":23,"./util":78,"validators":89}],23:[function(require,module,exports){
+},{"./CharField":5,"./EmailInput":23,"./util":77,"validators":97}],23:[function(require,module,exports){
 'use strict';
 
 var TextInput = require('./TextInput')
@@ -1713,12 +1713,12 @@ var EmailInput = TextInput.extend({
 })
 
 module.exports = EmailInput
-},{"./TextInput":64}],24:[function(require,module,exports){
+},{"./TextInput":63}],24:[function(require,module,exports){
 'use strict';
 
 var Concur = require('Concur')
 var object = require('isomorph/object')
-var React = (typeof window !== "undefined" ? window.React : typeof global !== "undefined" ? global.React : null)
+var React = (typeof window !== "undefined" ? window['React'] : typeof global !== "undefined" ? global['React'] : null)
 
 var $__0=  require('validators'),ValidationError=$__0.ValidationError
 
@@ -1858,12 +1858,12 @@ ErrorList.prototype.fromJSON = function(list) {
 
 module.exports = ErrorList
 
-},{"Concur":79,"isomorph/object":85,"validators":89}],25:[function(require,module,exports){
+},{"Concur":78,"isomorph/object":87,"validators":97}],25:[function(require,module,exports){
 'use strict';
 
 var Concur = require('Concur')
 var object = require('isomorph/object')
-var React = (typeof window !== "undefined" ? window.React : typeof global !== "undefined" ? global.React : null)
+var React = (typeof window !== "undefined" ? window['React'] : typeof global !== "undefined" ? global['React'] : null)
 
 var ErrorList = require('./ErrorList')
 
@@ -2021,7 +2021,7 @@ ErrorObject.prototype.fromJSON = function(jsonObj, errorConstructor) {
 
 module.exports = ErrorObject
 
-},{"./ErrorList":24,"Concur":79,"isomorph/object":85}],26:[function(require,module,exports){
+},{"./ErrorList":24,"Concur":78,"isomorph/object":87}],26:[function(require,module,exports){
 'use strict';
 
 var Concur = require('Concur')
@@ -2217,7 +2217,7 @@ Field.prototype._hasChanged = function(initial, data) {
 }
 
 module.exports = Field
-},{"./HiddenInput":35,"./TextInput":64,"./Widget":72,"./util":78,"Concur":79,"isomorph/is":84,"isomorph/object":85,"validators":89}],27:[function(require,module,exports){
+},{"./HiddenInput":35,"./TextInput":63,"./Widget":71,"./util":77,"Concur":78,"isomorph/is":86,"isomorph/object":87,"validators":97}],27:[function(require,module,exports){
 'use strict';
 
 var is = require('isomorph/is')
@@ -2327,7 +2327,7 @@ FileField.prototype._hasChanged = function(initial, data) {
 }
 
 module.exports = FileField
-},{"./ClearableFileInput":13,"./Field":26,"./env":74,"isomorph/is":84,"isomorph/object":85,"validators":89}],28:[function(require,module,exports){
+},{"./ClearableFileInput":13,"./Field":26,"./env":73,"isomorph/is":86,"isomorph/object":87,"validators":97}],28:[function(require,module,exports){
 'use strict';
 
 var object = require('isomorph/object')
@@ -2370,7 +2370,7 @@ FileInput.prototype.valueFromData = function(data, files, name) {
 }
 
 module.exports = FileInput
-},{"./Input":38,"./env":74,"isomorph/object":85}],29:[function(require,module,exports){
+},{"./Input":38,"./env":73,"isomorph/object":87}],29:[function(require,module,exports){
 'use strict';
 
 var object = require('isomorph/object')
@@ -2422,7 +2422,7 @@ var FilePathField = ChoiceField.extend({
 })
 
 module.exports = FilePathField
-},{"./ChoiceField":10,"isomorph/object":85}],30:[function(require,module,exports){
+},{"./ChoiceField":10,"isomorph/object":87}],30:[function(require,module,exports){
 'use strict';
 
 var object = require('isomorph/object')
@@ -2507,7 +2507,7 @@ FloatField.prototype.getWidgetAttrs = function(widget) {
 }
 
 module.exports = FloatField
-},{"./Field":26,"./IntegerField":39,"./util":78,"isomorph/object":85,"validators":89}],31:[function(require,module,exports){
+},{"./Field":26,"./IntegerField":39,"./util":77,"isomorph/object":87,"validators":97}],31:[function(require,module,exports){
 'use strict';
 
 var Concur = require('Concur')
@@ -3722,50 +3722,31 @@ Form.prototype._prefixData = function(data) {
 }
 
 module.exports = Form
-},{"./BoundField":4,"./DeclarativeFieldsMeta":21,"./ErrorList":24,"./ErrorObject":25,"./FileField":27,"./MultipleFileField":43,"./constants":73,"./util":78,"Concur":79,"get-form-data":81,"isomorph/copy":82,"isomorph/format":83,"isomorph/is":84,"isomorph/object":85,"validators":89}],32:[function(require,module,exports){
+},{"./BoundField":4,"./DeclarativeFieldsMeta":21,"./ErrorList":24,"./ErrorObject":25,"./FileField":27,"./MultipleFileField":43,"./constants":72,"./util":77,"Concur":78,"get-form-data":83,"isomorph/copy":84,"isomorph/format":85,"isomorph/is":86,"isomorph/object":87,"validators":97}],32:[function(require,module,exports){
 'use strict';
 
-var React = (typeof window !== "undefined" ? window.React : typeof global !== "undefined" ? global.React : null)
+var React = (typeof window !== "undefined" ? window['React'] : typeof global !== "undefined" ? global['React'] : null);
+var PropTypes = require('prop-types');
 
 var BoundField = require('./BoundField')
-var ProgressMixin = require('./ProgressMixin')
+// var ProgressMixin = require('./ProgressMixin')
 
 /**
  * Renders a "row" in a form. This can contain manually provided contents, or
  * if a BoundField is given, it will be used to display a field's label, widget,
  * error message(s), help text and async pending indicator.
  */
-var FormRow = React.createClass({displayName: "FormRow",
-  mixins: [ProgressMixin],
-  propTypes: {
-    bf: React.PropTypes.instanceOf(BoundField)
-  , className: React.PropTypes.string
-  , component: React.PropTypes.any
-  , content: React.PropTypes.any
-  , hidden: React.PropTypes.bool
-  , __all__:function(props) {
-      if (!props.bf && !props.content) {
-        return new Error(
-          'Invalid props supplied to `FormRow`, either `bf` or `content` ' +
-          'must be specified.'
-        )
-      }
-      if (props.bf && props.content) {
-        return new Error(
-          'Both `bf` and `content` props were passed to `FormRow` - `bf` ' +
-          'will be ignored.'
-        )
-      }
-    }
-  },
 
-  getDefaultProps:function() {
+var ____Class0=React.Component;for(var ____Class0____Key in ____Class0){if(____Class0.hasOwnProperty(____Class0____Key)){FormRow[____Class0____Key]=____Class0[____Class0____Key];}}var ____SuperProtoOf____Class0=____Class0===null?null:____Class0.prototype;FormRow.prototype=Object.create(____SuperProtoOf____Class0);FormRow.prototype.constructor=FormRow;FormRow.__superConstructor__=____Class0;function FormRow(){if(____Class0!==null){____Class0.apply(this,arguments);}}
+  // mixins: [ProgressMixin],
+
+  Object.defineProperty(FormRow.prototype,"getDefaultProps",{writable:true,configurable:true,value:function() {
     return {
       component: 'div'
     }
-  },
+  }});
 
-  render:function() {
+  Object.defineProperty(FormRow.prototype,"render",{writable:true,configurable:true,value:function() {
     var attrs = {}
     if (this.props.className) {
       attrs.className = this.props.className
@@ -3788,11 +3769,19 @@ var FormRow = React.createClass({displayName: "FormRow",
       bf.helpText && ' ', 
       bf.helpTextTag()
     )
-  }
-})
+  }});
+
+
+FormRow.propTypes = {
+  bf: PropTypes.instanceOf(BoundField)
+, className: PropTypes.string
+, component: PropTypes.any
+, content: PropTypes.any
+, hidden: PropTypes.bool
+};
 
 module.exports = FormRow
-},{"./BoundField":4,"./ProgressMixin":49}],33:[function(require,module,exports){
+},{"./BoundField":4,"prop-types":94}],33:[function(require,module,exports){
 'use strict';
 
 var Concur = require('Concur')
@@ -4703,7 +4692,7 @@ FormSet.prototype.getDefaultPrefix = function() {
 }
 
 module.exports = FormSet
-},{"./BooleanField":3,"./ErrorList":24,"./Form":31,"./HiddenInput":35,"./IntegerField":39,"./constants":73,"./env":74,"./isFormAsync":76,"./util":78,"Concur":79,"get-form-data":81,"isomorph/format":83,"isomorph/is":84,"isomorph/object":85,"validators":89}],34:[function(require,module,exports){
+},{"./BooleanField":3,"./ErrorList":24,"./Form":31,"./HiddenInput":35,"./IntegerField":39,"./constants":72,"./env":73,"./isFormAsync":75,"./util":77,"Concur":78,"get-form-data":83,"isomorph/format":85,"isomorph/is":86,"isomorph/object":87,"validators":97}],34:[function(require,module,exports){
 'use strict';
 
 var object = require('isomorph/object')
@@ -4736,7 +4725,7 @@ GenericIPAddressField.prototype.toJavaScript = function(value) {
 
 
 module.exports = GenericIPAddressField
-},{"./CharField":5,"isomorph/object":85,"validators":89}],35:[function(require,module,exports){
+},{"./CharField":5,"isomorph/object":87,"validators":97}],35:[function(require,module,exports){
 'use strict';
 
 var Input = require('./Input')
@@ -4781,7 +4770,7 @@ var IPAddressField = CharField.extend({
 })
 
 module.exports = IPAddressField
-},{"./CharField":5,"validators":89}],37:[function(require,module,exports){
+},{"./CharField":5,"validators":97}],37:[function(require,module,exports){
 'use strict';
 
 var FileField = require('./FileField')
@@ -4829,7 +4818,7 @@ module.exports = ImageField
 'use strict';
 
 var object = require('isomorph/object')
-var React = (typeof window !== "undefined" ? window.React : typeof global !== "undefined" ? global.React : null)
+var React = (typeof window !== "undefined" ? window['React'] : typeof global !== "undefined" ? global['React'] : null)
 
 var Widget = require('./Widget')
 
@@ -4869,7 +4858,7 @@ Input.prototype.render = function(name, value, kwargs) {
 }
 
 module.exports = Input
-},{"./Widget":72,"isomorph/object":85}],39:[function(require,module,exports){
+},{"./Widget":71,"isomorph/object":87}],39:[function(require,module,exports){
 'use strict';
 
 var object = require('isomorph/object')
@@ -4937,7 +4926,7 @@ IntegerField.prototype.getWidgetAttrs = function(widget) {
 }
 
 module.exports = IntegerField
-},{"./Field":26,"./NumberInput":47,"isomorph/object":85,"validators":89}],40:[function(require,module,exports){
+},{"./Field":26,"./NumberInput":47,"isomorph/object":87,"validators":97}],40:[function(require,module,exports){
 'use strict';
 
 var is = require('isomorph/is')
@@ -5111,12 +5100,12 @@ MultiValueField.prototype._hasChanged = function(initial, data) {
 }
 
 module.exports = MultiValueField
-},{"./Field":26,"isomorph/is":84,"isomorph/object":85,"validators":89}],41:[function(require,module,exports){
+},{"./Field":26,"isomorph/is":86,"isomorph/object":87,"validators":97}],41:[function(require,module,exports){
 'use strict';
 
 var is = require('isomorph/is')
 var object = require('isomorph/object')
-var React = (typeof window !== "undefined" ? window.React : typeof global !== "undefined" ? global.React : null)
+var React = (typeof window !== "undefined" ? window['React'] : typeof global !== "undefined" ? global['React'] : null)
 
 var Widget = require('./Widget')
 
@@ -5227,7 +5216,7 @@ MultiWidget.prototype.decompress = function(value) {
 }
 
 module.exports = MultiWidget
-},{"./Widget":72,"isomorph/is":84,"isomorph/object":85}],42:[function(require,module,exports){
+},{"./Widget":71,"isomorph/is":86,"isomorph/object":87}],42:[function(require,module,exports){
 'use strict';
 
 var is = require('isomorph/is')
@@ -5313,7 +5302,7 @@ MultipleChoiceField.prototype._hasChanged = function(initial, data) {
 }
 
 module.exports = MultipleChoiceField
-},{"./ChoiceField":10,"./MultipleHiddenInput":44,"./SelectMultiple":58,"isomorph/is":84,"isomorph/object":85,"validators":89}],43:[function(require,module,exports){
+},{"./ChoiceField":10,"./MultipleHiddenInput":44,"./SelectMultiple":57,"isomorph/is":86,"isomorph/object":87,"validators":97}],43:[function(require,module,exports){
 'use strict';
 
 var is = require('isomorph/is')
@@ -5413,11 +5402,11 @@ MultipleFileField.prototype._hasChanged = function(initial, data) {
 }
 
 module.exports = MultipleFileField
-},{"./Field":26,"./FileField":27,"./FileInput":28,"./env":74,"isomorph/is":84,"validators":89}],44:[function(require,module,exports){
+},{"./Field":26,"./FileField":27,"./FileInput":28,"./env":73,"isomorph/is":86,"validators":97}],44:[function(require,module,exports){
 'use strict';
 
 var object = require('isomorph/object')
-var React = (typeof window !== "undefined" ? window.React : typeof global !== "undefined" ? global.React : null)
+var React = (typeof window !== "undefined" ? window['React'] : typeof global !== "undefined" ? global['React'] : null)
 
 var HiddenInput = require('./HiddenInput')
 
@@ -5467,7 +5456,7 @@ MultipleHiddenInput.prototype.valueFromData = function(data, files, name) {
 }
 
 module.exports = MultipleHiddenInput
-},{"./HiddenInput":35,"isomorph/object":85}],45:[function(require,module,exports){
+},{"./HiddenInput":35,"isomorph/object":87}],45:[function(require,module,exports){
 'use strict';
 
 var BooleanField = require('./BooleanField')
@@ -5568,7 +5557,7 @@ NullBooleanSelect.prototype.valueFromData = function(data, files, name) {
 }
 
 module.exports = NullBooleanSelect
-},{"./Select":57}],47:[function(require,module,exports){
+},{"./Select":56}],47:[function(require,module,exports){
 'use strict';
 
 var TextInput = require('./TextInput')
@@ -5588,7 +5577,7 @@ var NumberInput = TextInput.extend({
 })
 
 module.exports = NumberInput
-},{"./TextInput":64}],48:[function(require,module,exports){
+},{"./TextInput":63}],48:[function(require,module,exports){
 'use strict';
 
 var object = require('isomorph/object')
@@ -5620,30 +5609,7 @@ PasswordInput.prototype.render = function(name, value, kwargs) {
 }
 
 module.exports = PasswordInput
-},{"./TextInput":64,"./env":74,"isomorph/object":85}],49:[function(require,module,exports){
-'use strict';
-
-var is = require('isomorph/is')
-var React = (typeof window !== "undefined" ? window.React : typeof global !== "undefined" ? global.React : null)
-
-var ProgressMixin = {
-  propTypes: {
-    progress: React.PropTypes.any // Component or function to render async progress
-  },
-
-  renderProgress:function() {
-    if (!this.props.progress) {
-      return React.createElement("progress", null, "Validating...")
-    }
-    if (is.Function(this.props.progress)) {
-      return this.props.progress()
-    }
-    return React.createElement(this.props.progress, null)
-  }
-}
-
-module.exports = ProgressMixin
-},{"isomorph/is":84}],50:[function(require,module,exports){
+},{"./TextInput":63,"./env":73,"isomorph/object":87}],49:[function(require,module,exports){
 'use strict';
 
 var ChoiceInput = require('./ChoiceInput')
@@ -5660,7 +5626,7 @@ var RadioChoiceInput = ChoiceInput.extend({
 })
 
 module.exports = RadioChoiceInput
-},{"./ChoiceInput":12}],51:[function(require,module,exports){
+},{"./ChoiceInput":12}],50:[function(require,module,exports){
 'use strict';
 
 var ChoiceFieldRenderer = require('./ChoiceFieldRenderer')
@@ -5677,7 +5643,7 @@ var RadioFieldRenderer = ChoiceFieldRenderer.extend({
 })
 
 module.exports = RadioFieldRenderer
-},{"./ChoiceFieldRenderer":11,"./RadioChoiceInput":50}],52:[function(require,module,exports){
+},{"./ChoiceFieldRenderer":11,"./RadioChoiceInput":49}],51:[function(require,module,exports){
 'use strict';
 
 var RadioFieldRenderer = require('./RadioFieldRenderer')
@@ -5702,7 +5668,7 @@ var RadioSelect = Select.extend({
 })
 
 module.exports = RadioSelect
-},{"./RadioFieldRenderer":51,"./RendererMixin":56,"./Select":57}],53:[function(require,module,exports){
+},{"./RadioFieldRenderer":50,"./RendererMixin":55,"./Select":56}],52:[function(require,module,exports){
 'use strict';
 
 var is = require('isomorph/is')
@@ -5731,35 +5697,37 @@ var RegexField = CharField.extend({
 })
 
 module.exports = RegexField
-},{"./CharField":5,"isomorph/is":84,"validators":89}],54:[function(require,module,exports){
+},{"./CharField":5,"isomorph/is":86,"validators":97}],53:[function(require,module,exports){
 'use strict';
 
+var React = (typeof window !== "undefined" ? window['React'] : typeof global !== "undefined" ? global['React'] : null);
+var PropTypes = require('prop-types');
+
 var object = require('isomorph/object')
-var React = (typeof window !== "undefined" ? window.React : typeof global !== "undefined" ? global.React : null)
 
 var ErrorObject = require('./ErrorObject')
 var Form = require('./Form')
 var FormRow = require('./FormRow')
-var ProgressMixin = require('./ProgressMixin')
+// var ProgressMixin = require('./ProgressMixin')
 
 var $__0=  require('./constants'),NON_FIELD_ERRORS=$__0.NON_FIELD_ERRORS
 var $__1=   require('./util'),autoIdChecker=$__1.autoIdChecker,getProps=$__1.getProps
 
 var formProps = {
   autoId: autoIdChecker
-, controlled: React.PropTypes.bool
-, data: React.PropTypes.object
-, emptyPermitted: React.PropTypes.bool
-, errorConstructor: React.PropTypes.func
-, errors: React.PropTypes.instanceOf(ErrorObject)
-, files: React.PropTypes.object
-, initial: React.PropTypes.object
-, labelSuffix: React.PropTypes.string
-, onChange: React.PropTypes.func
-, prefix: React.PropTypes.string
-, validation: React.PropTypes.oneOfType([
-    React.PropTypes.string
-  , React.PropTypes.object
+, controlled: PropTypes.bool
+, data: PropTypes.object
+, emptyPermitted: PropTypes.bool
+, errorConstructor: PropTypes.func
+, errors: PropTypes.instanceOf(ErrorObject)
+, files: PropTypes.object
+, initial: PropTypes.object
+, labelSuffix: PropTypes.string
+, onChange: PropTypes.func
+, prefix: PropTypes.string
+, validation: PropTypes.oneOfType([
+    PropTypes.string
+  , PropTypes.object
   ])
 }
 
@@ -5768,36 +5736,23 @@ var formProps = {
  * is given, an instance will be created when the component is mounted, and any
  * additional props will be passed to the constructor as options.
  */
-var RenderForm = React.createClass({displayName: "RenderForm",
-  mixins: [ProgressMixin],
-  propTypes: object.extend({}, formProps, {
-    className: React.PropTypes.string      // Class for the component wrapping all rows
-  , component: React.PropTypes.any         // Component to wrap all rows
-  , form: React.PropTypes.oneOfType([      // Form instance or constructor
-      React.PropTypes.func,
-      React.PropTypes.instanceOf(Form)
-    ]).isRequired
-  , row: React.PropTypes.any               // Component to render form rows
-  , rowComponent: React.PropTypes.any      // Component to wrap each row
-  }),
 
-  childContextTypes: {
-    form: React.PropTypes.instanceOf(Form)
-  },
+ var ____Class1=React.Component;for(var ____Class1____Key in ____Class1){if(____Class1.hasOwnProperty(____Class1____Key)){RenderForm[____Class1____Key]=____Class1[____Class1____Key];}}var ____SuperProtoOf____Class1=____Class1===null?null:____Class1.prototype;RenderForm.prototype=Object.create(____SuperProtoOf____Class1);RenderForm.prototype.constructor=RenderForm;RenderForm.__superConstructor__=____Class1;function RenderForm(){if(____Class1!==null){____Class1.apply(this,arguments);}}
+  // mixins: [ProgressMixin],
 
-  getChildContext:function() {
+  Object.defineProperty(RenderForm.prototype,"getChildContext",{writable:true,configurable:true,value:function() {
     return {form: this.form}
-  },
+  }});
 
-  getDefaultProps:function() {
+  Object.defineProperty(RenderForm.prototype,"getDefaultProps",{writable:true,configurable:true,value:function() {
     return {
       component: 'div'
     , row: FormRow
     , rowComponent: 'div'
     }
-  },
+  }});
 
-  componentWillMount:function() {
+  Object.defineProperty(RenderForm.prototype,"componentWillMount",{writable:true,configurable:true,value:function() {
     if (this.props.form instanceof Form) {
       this.form = this.props.form
     }
@@ -5806,13 +5761,13 @@ var RenderForm = React.createClass({displayName: "RenderForm",
         onChange: this.forceUpdate.bind(this)
       }, getProps(this.props, Object.keys(formProps))))
     }
-  },
+  }});
 
-  getForm:function() {
+  Object.defineProperty(RenderForm.prototype,"getForm",{writable:true,configurable:true,value:function() {
     return this.form
-  },
+  }});
 
-  render:function() {
+  Object.defineProperty(RenderForm.prototype,"render",{writable:true,configurable:true,value:function() {
     // Allow a single child to be passed for custom rendering - passing any more
     // will throw an error.
     if (React.Children.count(this.props.children) !== 0) {
@@ -5865,46 +5820,63 @@ var RenderForm = React.createClass({displayName: "RenderForm",
         key: form.addPrefix('__hidden__')}
       )
     )
-  }
-})
+  }});
+
+
+RenderForm.propTypes = object.assign({}, formProps, {
+  className: PropTypes.string      // Class for the component wrapping all rows
+, component: PropTypes.any         // Component to wrap all rows
+, form: PropTypes.oneOfType([      // Form instance or constructor
+    PropTypes.func,
+    PropTypes.instanceOf(Form)
+  ]).isRequired
+, row: PropTypes.any               // Component to render form rows
+, rowComponent: PropTypes.any      // Component to wrap each row
+});
+
+RenderForm.childContextTypes = {
+  form: PropTypes.instanceOf(Form)
+};
 
 module.exports = RenderForm
 
-},{"./ErrorObject":25,"./Form":31,"./FormRow":32,"./ProgressMixin":49,"./constants":73,"./util":78,"isomorph/object":85}],55:[function(require,module,exports){
+},{"./ErrorObject":25,"./Form":31,"./FormRow":32,"./constants":72,"./util":77,"isomorph/object":87,"prop-types":94}],54:[function(require,module,exports){
 'use strict';
 
+var React = (typeof window !== "undefined" ? window['React'] : typeof global !== "undefined" ? global['React'] : null);
+var PropTypes = require('prop-types');
+
 var object = require('isomorph/object')
-var React = (typeof window !== "undefined" ? window.React : typeof global !== "undefined" ? global.React : null)
 
 var FormRow = require('./FormRow')
 var FormSet = require('./FormSet')
-var ProgressMixin = require('./ProgressMixin')
+// var ProgressMixin = require('./ProgressMixin')
 var RenderForm = require('./RenderForm')
 
 var $__0=  require('./constants'),NON_FIELD_ERRORS=$__0.NON_FIELD_ERRORS
 var $__1=   require('./util'),autoIdChecker=$__1.autoIdChecker,getProps=$__1.getProps
 
 var formsetProps = {
-  canDelete: React.PropTypes.bool
-, canOrder: React.PropTypes.bool
-, extra: React.PropTypes.number
-, form: React.PropTypes.func
-, maxNum: React.PropTypes.number
-, minNum: React.PropTypes.number
-, validateMax: React.PropTypes.bool
-, validateMin: React.PropTypes.bool
+  canDelete: PropTypes.bool
+, canOrder: PropTypes.bool
+, extra: PropTypes.number
+, form: PropTypes.func
+, maxNum: PropTypes.number
+, minNum: PropTypes.number
+, validateMax: PropTypes.bool
+, validateMin: PropTypes.bool
 
 , autoId: autoIdChecker
-, controlled: React.PropTypes.bool
-, data: React.PropTypes.object
-, errorConstructor: React.PropTypes.func
-, files: React.PropTypes.object
-, initial: React.PropTypes.object
-, onChange: React.PropTypes.func
-, prefix: React.PropTypes.string
-, validation: React.PropTypes.oneOfType([
-    React.PropTypes.string
-  , React.PropTypes.object
+, controlled: PropTypes.bool
+, data: PropTypes.object
+, errorConstructor: PropTypes.func
+, files: PropTypes.object
+, initial: PropTypes.object
+, onChange: PropTypes.func
+, prefix: PropTypes.string
+, validation: PropTypes.oneOfType([
+    PropTypes.string
+  , PropTypes.object
   ])
 }
 
@@ -5914,41 +5886,11 @@ var formsetProps = {
  * mounted, and any additional props will be passed to the constructor as
  * options.
  */
-var RenderFormSet = React.createClass({displayName: "RenderFormSet",
-  mixins: [ProgressMixin],
-  propTypes: object.extend({}, formsetProps, {
-    className: React.PropTypes.string         // Class for the component wrapping all forms
-  , component: React.PropTypes.any            // Component to wrap all forms
-  , formComponent: React.PropTypes.any        // Component to wrap each form
-  , formset: React.PropTypes.oneOfType([      // Formset instance or constructor
-      React.PropTypes.func,
-      React.PropTypes.instanceOf(FormSet)
-    ])
-  , row: React.PropTypes.any                  // Component to render form rows
-  , rowComponent: React.PropTypes.any         // Component to wrap each form row
-  , useManagementForm: React.PropTypes.bool   // Should ManagementForm hidden fields be rendered?
-  , __all__:function(props) {
-      if (!props.form && !props.formset) {
-        return new Error(
-          'Invalid props supplied to `RenderFormSet`, either `form` or ' +
-          '`formset` must be specified.'
-        )
-      }
-    }
-  }),
 
-  getDefaultProps:function() {
-    return {
-      component: 'div'
-    , formComponent: 'div'
-    , formset: FormSet
-    , row: FormRow
-    , rowComponent: 'div'
-    , useManagementForm: false
-    }
-  },
+var ____Class2=React.Component;for(var ____Class2____Key in ____Class2){if(____Class2.hasOwnProperty(____Class2____Key)){RenderFormSet[____Class2____Key]=____Class2[____Class2____Key];}}var ____SuperProtoOf____Class2=____Class2===null?null:____Class2.prototype;RenderFormSet.prototype=Object.create(____SuperProtoOf____Class2);RenderFormSet.prototype.constructor=RenderFormSet;RenderFormSet.__superConstructor__=____Class2;function RenderFormSet(){if(____Class2!==null){____Class2.apply(this,arguments);}}
+  // mixins: [ProgressMixin],
 
-  componentWillMount:function() {
+  Object.defineProperty(RenderFormSet.prototype,"componentWillMount",{writable:true,configurable:true,value:function() {
     if (this.props.formset instanceof FormSet) {
       this.formset = this.props.formset
     }
@@ -5957,13 +5899,13 @@ var RenderFormSet = React.createClass({displayName: "RenderFormSet",
         onChange: this.forceUpdate.bind(this)
       }, getProps(this.props, Object.keys(formsetProps))))
     }
-  },
+  }});
 
-  getFormset:function() {
+  Object.defineProperty(RenderFormSet.prototype,"getFormset",{writable:true,configurable:true,value:function() {
     return this.formset
-  },
+  }});
 
-  render:function() {
+  Object.defineProperty(RenderFormSet.prototype,"render",{writable:true,configurable:true,value:function() {
     var $__0=   this,formset=$__0.formset,props=$__0.props
     var attrs = {}
     if (this.props.className) {
@@ -5998,11 +5940,33 @@ var RenderFormSet = React.createClass({displayName: "RenderFormSet",
         rowComponent: props.rowComponent}
       )
     )
-  }
-})
+  }});
+
+
+RenderFormSet.propTypes = object.assign({}, formsetProps, {
+  className: PropTypes.string         // Class for the component wrapping all forms
+, component: PropTypes.any            // Component to wrap all forms
+, formComponent: PropTypes.any        // Component to wrap each form
+, formset: PropTypes.oneOfType([      // Formset instance or constructor
+    PropTypes.func,
+    PropTypes.instanceOf(FormSet)
+  ])
+, row: PropTypes.any                  // Component to render form rows
+, rowComponent: PropTypes.any         // Component to wrap each form row
+, useManagementForm: PropTypes.bool   // Should ManagementForm hidden fields be rendered?
+});
+
+RenderFormSet.defaultProps = {
+  component: 'div'
+, formComponent: 'div'
+, formset: FormSet
+, row: FormRow
+, rowComponent: 'div'
+, useManagementForm: false
+};
 
 module.exports = RenderFormSet
-},{"./FormRow":32,"./FormSet":33,"./ProgressMixin":49,"./RenderForm":54,"./constants":73,"./util":78,"isomorph/object":85}],56:[function(require,module,exports){
+},{"./FormRow":32,"./FormSet":33,"./RenderForm":53,"./constants":72,"./util":77,"isomorph/object":87,"prop-types":94}],55:[function(require,module,exports){
 'use strict';
 
 var Concur = require('Concur')
@@ -6056,12 +6020,12 @@ RendererMixin.prototype.idForLabel = function(id) {
 }
 
 module.exports = RendererMixin
-},{"Concur":79,"isomorph/object":85}],57:[function(require,module,exports){
+},{"Concur":78,"isomorph/object":87}],56:[function(require,module,exports){
 'use strict';
 
 var is = require('isomorph/is')
 var object = require('isomorph/object')
-var React = (typeof window !== "undefined" ? window.React : typeof global !== "undefined" ? global.React : null)
+var React = (typeof window !== "undefined" ? window['React'] : typeof global !== "undefined" ? global['React'] : null)
 
 var Widget = require('./Widget')
 
@@ -6138,12 +6102,12 @@ Select.prototype.renderOption = function(optValue, optLabel) {
 
 module.exports = Select
 
-},{"./Widget":72,"./util":78,"isomorph/is":84,"isomorph/object":85}],58:[function(require,module,exports){
+},{"./Widget":71,"./util":77,"isomorph/is":86,"isomorph/object":87}],57:[function(require,module,exports){
 'use strict';
 
 var is = require('isomorph/is')
 var object = require('isomorph/object')
-var React = (typeof window !== "undefined" ? window.React : typeof global !== "undefined" ? global.React : null)
+var React = (typeof window !== "undefined" ? window['React'] : typeof global !== "undefined" ? global['React'] : null)
 
 var Select = require('./Select')
 
@@ -6203,7 +6167,7 @@ SelectMultiple.prototype.valueFromData = function(data, files, name) {
 
 module.exports = SelectMultiple
 
-},{"./Select":57,"isomorph/is":84,"isomorph/object":85}],59:[function(require,module,exports){
+},{"./Select":56,"isomorph/is":86,"isomorph/object":87}],58:[function(require,module,exports){
 'use strict';
 
 var validators = require('validators')
@@ -6232,7 +6196,7 @@ SlugField.prototype.clean = function(value) {
 }
 
 module.exports = SlugField
-},{"./CharField":5,"./util":78,"validators":89}],60:[function(require,module,exports){
+},{"./CharField":5,"./util":77,"validators":97}],59:[function(require,module,exports){
 'use strict';
 
 var is = require('isomorph/is')
@@ -6305,7 +6269,7 @@ SplitDateTimeField.prototype.compress = function(dataList) {
 }
 
 module.exports = SplitDateTimeField
-},{"./DateField":15,"./MultiValueField":40,"./SplitDateTimeWidget":61,"./SplitHiddenDateTimeWidget":62,"./TimeField":66,"isomorph/is":84,"isomorph/object":85,"validators":89}],61:[function(require,module,exports){
+},{"./DateField":15,"./MultiValueField":40,"./SplitDateTimeWidget":60,"./SplitHiddenDateTimeWidget":61,"./TimeField":65,"isomorph/is":86,"isomorph/object":87,"validators":97}],60:[function(require,module,exports){
 'use strict';
 
 var object = require('isomorph/object')
@@ -6343,7 +6307,7 @@ SplitDateTimeWidget.prototype.decompress = function(value) {
 }
 
 module.exports = SplitDateTimeWidget
-},{"./DateInput":16,"./MultiWidget":41,"./TimeInput":67,"isomorph/object":85}],62:[function(require,module,exports){
+},{"./DateInput":16,"./MultiWidget":41,"./TimeInput":66,"isomorph/object":87}],61:[function(require,module,exports){
 'use strict';
 
 var SplitDateTimeWidget = require('./SplitDateTimeWidget')
@@ -6367,7 +6331,7 @@ var SplitHiddenDateTimeWidget = SplitDateTimeWidget.extend({
 })
 
 module.exports = SplitHiddenDateTimeWidget
-},{"./SplitDateTimeWidget":61}],63:[function(require,module,exports){
+},{"./SplitDateTimeWidget":60}],62:[function(require,module,exports){
 'use strict';
 
 var Concur = require('Concur')
@@ -6401,7 +6365,7 @@ SubWidget.prototype.render = function() {
 }
 
 module.exports = SubWidget
-},{"Concur":79,"isomorph/object":85}],64:[function(require,module,exports){
+},{"Concur":78,"isomorph/object":87}],63:[function(require,module,exports){
 'use strict';
 
 var object = require('isomorph/object')
@@ -6427,11 +6391,11 @@ var TextInput = Input.extend({
 })
 
 module.exports = TextInput
-},{"./Input":38,"isomorph/object":85}],65:[function(require,module,exports){
+},{"./Input":38,"isomorph/object":87}],64:[function(require,module,exports){
 'use strict';
 
 var object = require('isomorph/object')
-var React = (typeof window !== "undefined" ? window.React : typeof global !== "undefined" ? global.React : null)
+var React = (typeof window !== "undefined" ? window['React'] : typeof global !== "undefined" ? global['React'] : null)
 
 var Widget = require('./Widget')
 
@@ -6467,7 +6431,7 @@ Textarea.prototype.render = function(name, value, kwargs) {
 }
 
 module.exports = Textarea
-},{"./Widget":72,"isomorph/object":85}],66:[function(require,module,exports){
+},{"./Widget":71,"isomorph/object":87}],65:[function(require,module,exports){
 'use strict';
 
 var time = require('isomorph/time')
@@ -6526,7 +6490,7 @@ TimeField.prototype.strpdate = function(value, format) {
 }
 
 module.exports = TimeField
-},{"./BaseTemporalField":2,"./TimeInput":67,"./locales":77,"isomorph/time":86}],67:[function(require,module,exports){
+},{"./BaseTemporalField":2,"./TimeInput":66,"./locales":76,"isomorph/time":88}],66:[function(require,module,exports){
 'use strict';
 
 var DateTimeBaseInput = require('./DateTimeBaseInput')
@@ -6545,7 +6509,7 @@ var TimeInput = DateTimeBaseInput.extend({
 })
 
 module.exports = TimeInput
-},{"./DateTimeBaseInput":17}],68:[function(require,module,exports){
+},{"./DateTimeBaseInput":17}],67:[function(require,module,exports){
 'use strict';
 
 var object = require('isomorph/object')
@@ -6598,7 +6562,7 @@ TypedChoiceField.prototype.clean = function(value) {
 
 
 module.exports = TypedChoiceField
-},{"./ChoiceField":10,"isomorph/object":85,"validators":89}],69:[function(require,module,exports){
+},{"./ChoiceField":10,"isomorph/object":87,"validators":97}],68:[function(require,module,exports){
 'use strict';
 
 var is = require('isomorph/is')
@@ -6660,7 +6624,7 @@ TypedMultipleChoiceField.prototype.validate = function(value) {
 }
 
 module.exports = TypedMultipleChoiceField
-},{"./MultipleChoiceField":42,"isomorph/is":84,"isomorph/object":85,"validators":89}],70:[function(require,module,exports){
+},{"./MultipleChoiceField":42,"isomorph/is":86,"isomorph/object":87,"validators":97}],69:[function(require,module,exports){
 'use strict';
 
 var url = require('isomorph/url')
@@ -6712,7 +6676,7 @@ URLField.prototype.clean = function(value) {
 }
 
 module.exports = URLField
-},{"./CharField":5,"./URLInput":71,"./util":78,"isomorph/url":87,"validators":89}],71:[function(require,module,exports){
+},{"./CharField":5,"./URLInput":70,"./util":77,"isomorph/url":89,"validators":97}],70:[function(require,module,exports){
 'use strict';
 
 var TextInput = require('./TextInput')
@@ -6732,7 +6696,7 @@ var URLInput = TextInput.extend({
 })
 
 module.exports = URLInput
-},{"./TextInput":64}],72:[function(require,module,exports){
+},{"./TextInput":63}],71:[function(require,module,exports){
 'use strict';
 
 var Concur = require('Concur')
@@ -6815,7 +6779,7 @@ Widget.prototype.idForLabel = function(id) {
 }
 
 module.exports = Widget
-},{"./SubWidget":63,"Concur":79,"isomorph/object":85}],73:[function(require,module,exports){
+},{"./SubWidget":62,"Concur":78,"isomorph/object":87}],72:[function(require,module,exports){
 'use strict';
 
 module.exports = {
@@ -6826,13 +6790,13 @@ module.exports = {
   /** Property under which non-field-specific errors are stored. */
 , NON_FIELD_ERRORS: '__all__'
 }
-},{}],74:[function(require,module,exports){
+},{}],73:[function(require,module,exports){
 'use strict';
 
 module.exports = {
   browser: typeof window != 'undefined'
 }
-},{}],75:[function(require,module,exports){
+},{}],74:[function(require,module,exports){
 'use strict';
 
 var object = require('isomorph/object')
@@ -6901,7 +6865,7 @@ module.exports = {
   getFormat: getFormat
 }
 
-},{"./locales":77,"isomorph/object":85}],76:[function(require,module,exports){
+},{"./locales":76,"isomorph/object":87}],75:[function(require,module,exports){
 'use strict';
 
 var is = require('isomorph/is')
@@ -6920,7 +6884,7 @@ function isFormAsync(constructor) {
 }
 
 module.exports = isFormAsync
-},{"isomorph/is":84}],77:[function(require,module,exports){
+},{"isomorph/is":86}],76:[function(require,module,exports){
 'use strict';
 
 var object = require('isomorph/object')
@@ -7054,7 +7018,7 @@ module.exports = {
 , setDefaultLocale: setDefaultLocale
 }
 
-},{"isomorph/object":85,"isomorph/time":86}],78:[function(require,module,exports){
+},{"isomorph/object":87,"isomorph/time":88}],77:[function(require,module,exports){
 'use strict';
 
 var getFormData = require('get-form-data')
@@ -7433,7 +7397,7 @@ module.exports = {
 , warning: warning
 }
 
-},{"get-form-data":81,"isomorph/is":84,"isomorph/object":85}],79:[function(require,module,exports){
+},{"get-form-data":83,"isomorph/is":86,"isomorph/object":87}],78:[function(require,module,exports){
 'use strict';
 
 var hasOwn = Object.prototype.hasOwnProperty
@@ -7584,7 +7548,7 @@ Concur.extend = function(prototypeProps, constructorProps) {
   return childConstructor
 }
 
-},{}],80:[function(require,module,exports){
+},{}],79:[function(require,module,exports){
 /*! http://mths.be/punycode v1.2.4 by @mathias */
 ;(function(root) {
 
@@ -8093,127 +8057,285 @@ Concur.extend = function(prototypeProps, constructorProps) {
 
 }(this));
 
+},{}],80:[function(require,module,exports){
+"use strict";
+
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ * 
+ */
+
+function makeEmptyFunction(arg) {
+  return function () {
+    return arg;
+  };
+}
+
+/**
+ * This function accepts and discards inputs; it has no side effects. This is
+ * primarily useful idiomatically for overridable function endpoints which
+ * always need to be callable, since JS lacks a null-call idiom ala Cocoa.
+ */
+var emptyFunction = function emptyFunction() {};
+
+emptyFunction.thatReturns = makeEmptyFunction;
+emptyFunction.thatReturnsFalse = makeEmptyFunction(false);
+emptyFunction.thatReturnsTrue = makeEmptyFunction(true);
+emptyFunction.thatReturnsNull = makeEmptyFunction(null);
+emptyFunction.thatReturnsThis = function () {
+  return this;
+};
+emptyFunction.thatReturnsArgument = function (arg) {
+  return arg;
+};
+
+module.exports = emptyFunction;
 },{}],81:[function(require,module,exports){
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ */
+
 'use strict';
 
-var NODE_LIST_CLASSES = {
-  '[object HTMLCollection]': true
-, '[object NodeList]': true
-, '[object RadioNodeList]': true
+/**
+ * Use invariant() to assert state which your program assumes to be true.
+ *
+ * Provide sprintf-style format (only %s is supported) and arguments
+ * to provide information about what broke and what you were
+ * expecting.
+ *
+ * The invariant message will be stripped in production, but the invariant
+ * will remain to ensure logic does not differ in production.
+ */
+
+var validateFormat = function validateFormat(format) {};
+
+if ("development" !== 'production') {
+  validateFormat = function validateFormat(format) {
+    if (format === undefined) {
+      throw new Error('invariant requires an error message argument');
+    }
+  };
 }
 
-var IGNORED_INPUT_TYPES = {
-  'button': true
-, 'reset': true
-, 'submit': true
-, 'fieldset': true
+function invariant(condition, format, a, b, c, d, e, f) {
+  validateFormat(format);
+
+  if (!condition) {
+    var error;
+    if (format === undefined) {
+      error = new Error('Minified exception occurred; use the non-minified dev environment ' + 'for the full error message and additional helpful warnings.');
+    } else {
+      var args = [a, b, c, d, e, f];
+      var argIndex = 0;
+      error = new Error(format.replace(/%s/g, function () {
+        return args[argIndex++];
+      }));
+      error.name = 'Invariant Violation';
+    }
+
+    error.framesToPop = 1; // we don't care about invariant's own frame
+    throw error;
+  }
 }
+
+module.exports = invariant;
+},{}],82:[function(require,module,exports){
+/**
+ * Copyright (c) 2014-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ */
+
+'use strict';
+
+var emptyFunction = require('./emptyFunction');
+
+/**
+ * Similar to invariant but only logs a warning if the condition is not met.
+ * This can be used to log issues in development environments in critical
+ * paths. Removing the logging code for production environments will keep the
+ * same logic and follow the same code paths.
+ */
+
+var warning = emptyFunction;
+
+if ("development" !== 'production') {
+  var printWarning = function printWarning(format) {
+    for (var _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+      args[_key - 1] = arguments[_key];
+    }
+
+    var argIndex = 0;
+    var message = 'Warning: ' + format.replace(/%s/g, function () {
+      return args[argIndex++];
+    });
+    if (typeof console !== 'undefined') {
+      console.error(message);
+    }
+    try {
+      // --- Welcome to debugging React ---
+      // This error was thrown as a convenience so that you can use this stack
+      // to find the callsite that caused this warning to fire.
+      throw new Error(message);
+    } catch (x) {}
+  };
+
+  warning = function warning(condition, format) {
+    if (format === undefined) {
+      throw new Error('`warning(condition, format, ...args)` requires a warning ' + 'message argument');
+    }
+
+    if (format.indexOf('Failed Composite propType: ') === 0) {
+      return; // Ignore CompositeComponent proptype check.
+    }
+
+    if (!condition) {
+      for (var _len2 = arguments.length, args = Array(_len2 > 2 ? _len2 - 2 : 0), _key2 = 2; _key2 < _len2; _key2++) {
+        args[_key2 - 2] = arguments[_key2];
+      }
+
+      printWarning.apply(undefined, [format].concat(args));
+    }
+  };
+}
+
+module.exports = warning;
+},{"./emptyFunction":80}],83:[function(require,module,exports){
+'use strict';
+
+exports.__esModule = true;
+var NODE_LIST_CLASSES = {
+  '[object HTMLCollection]': true,
+  '[object NodeList]': true,
+  '[object RadioNodeList]': true
+};
+
+// .type values for elements which can appear in .elements and should be ignored
+var IGNORED_ELEMENT_TYPES = {
+  'button': true,
+  'fieldset': true,
+  // 'keygen': true,
+  // 'output': true,
+  'reset': true,
+  'submit': true
+};
 
 var CHECKED_INPUT_TYPES = {
-  'checkbox': true
-, 'radio': true
-}
+  'checkbox': true,
+  'radio': true
+};
 
-var TRIM_RE = /^\s+|\s+$/g
+var TRIM_RE = /^\s+|\s+$/g;
 
-var slice = Array.prototype.slice
-var toString = Object.prototype.toString
+var slice = Array.prototype.slice;
+var toString = Object.prototype.toString;
 
 /**
  * @param {HTMLFormElement} form
+ * @param {Object} options
  * @return {Object.<string,(string|Array.<string>)>} an object containing
  *   submittable value(s) held in the form's .elements collection, with
  *   properties named as per element names or ids.
  */
-function getFormData(form, options) {
+function getFormData(form) {
+  var options = arguments.length <= 1 || arguments[1] === undefined ? { trim: false } : arguments[1];
+
   if (!form) {
-    throw new Error('A form is required by getFormData, was given form=' + form)
+    throw new Error('A form is required by getFormData, was given form=' + form);
   }
 
-  if (!options) {
-    options = {trim: false}
-  }
-
-  var data = {}
-  var elementName
-  var elementNames = []
-  var elementNameLookup = {}
+  var data = {};
+  var elementName = undefined;
+  var elementNames = [];
+  var elementNameLookup = {};
 
   // Get unique submittable element names for the form
   for (var i = 0, l = form.elements.length; i < l; i++) {
-    var element = form.elements[i]
-    if (IGNORED_INPUT_TYPES[element.type] || element.disabled) {
-      continue
+    var element = form.elements[i];
+    if (IGNORED_ELEMENT_TYPES[element.type] || element.disabled) {
+      continue;
     }
-    elementName = element.name || element.id
+    elementName = element.name || element.id;
     if (elementName && !elementNameLookup[elementName]) {
-      elementNames.push(elementName)
-      elementNameLookup[elementName] = true
+      elementNames.push(elementName);
+      elementNameLookup[elementName] = true;
     }
   }
 
   // Extract element data name-by-name for consistent handling of special cases
   // around elements which contain multiple inputs.
-  for (i = 0, l = elementNames.length; i < l; i++) {
-    elementName = elementNames[i]
-    var value = getNamedFormElementData(form, elementName, options)
+  for (var i = 0, l = elementNames.length; i < l; i++) {
+    elementName = elementNames[i];
+    var value = getNamedFormElementData(form, elementName, options);
     if (value != null) {
-      data[elementName] = value
+      data[elementName] = value;
     }
   }
 
-  return data
+  return data;
 }
 
 /**
  * @param {HTMLFormElement} form
  * @param {string} elementName
+ * @param {Object} options
  * @return {(string|Array.<string>)} submittable value(s) in the form for a
  *   named element from its .elements collection, or null if there was no
  *   element with that name or the element had no submittable value(s).
  */
-function getNamedFormElementData(form, elementName, options) {
+function getNamedFormElementData(form, elementName) {
+  var options = arguments.length <= 2 || arguments[2] === undefined ? { trim: false } : arguments[2];
+
   if (!form) {
-    throw new Error('A form is required by getNamedFormElementData, was given form=' + form)
+    throw new Error('A form is required by getNamedFormElementData, was given form=' + form);
   }
   if (!elementName && toString.call(elementName) !== '[object String]') {
-    throw new Error('A form element name is required by getNamedFormElementData, was given elementName=' + elementName)
+    throw new Error('A form element name is required by getNamedFormElementData, was given elementName=' + elementName);
   }
 
-  var element = form.elements[elementName]
+  var element = form.elements[elementName];
   if (!element || element.disabled) {
-    return null
+    return null;
   }
-
-  var trim = !!(options && options.trim)
 
   if (!NODE_LIST_CLASSES[toString.call(element)]) {
-    return getFormElementValue(element, trim)
+    return getFormElementValue(element, options.trim);
   }
 
   // Deal with multiple form controls which have the same name
-  var data = []
-  var allRadios = true
+  var data = [];
+  var allRadios = true;
   for (var i = 0, l = element.length; i < l; i++) {
     if (element[i].disabled) {
-      continue
+      continue;
     }
     if (allRadios && element[i].type !== 'radio') {
-      allRadios = false
+      allRadios = false;
     }
-    var value = getFormElementValue(element[i], trim)
+    var value = getFormElementValue(element[i], options.trim);
     if (value != null) {
-      data = data.concat(value)
+      data = data.concat(value);
     }
   }
 
   // Special case for an element with multiple same-named inputs which were all
   // radio buttons: if there was a selected value, only return the value.
   if (allRadios && data.length === 1) {
-    return data[0]
+    return data[0];
   }
 
-  return (data.length > 0 ? data : null)
+  return data.length > 0 ? data : null;
 }
 
 /**
@@ -8223,58 +8345,58 @@ function getNamedFormElementData(form, elementName, options) {
  *   value(s), or null if it had none.
  */
 function getFormElementValue(element, trim) {
-  var value = null
+  var value = null;
+  var type = element.type;
 
-  if (element.type === 'select-one') {
+  if (type === 'select-one') {
     if (element.options.length) {
-      value = element.options[element.selectedIndex].value
+      value = element.options[element.selectedIndex].value;
     }
-    return value
+    return value;
   }
 
-  if (element.type === 'select-multiple') {
-    value = []
+  if (type === 'select-multiple') {
+    value = [];
     for (var i = 0, l = element.options.length; i < l; i++) {
       if (element.options[i].selected) {
-        value.push(element.options[i].value)
+        value.push(element.options[i].value);
       }
     }
     if (value.length === 0) {
-      value = null
+      value = null;
     }
-    return value
+    return value;
   }
 
   // If a file input doesn't have a files attribute, fall through to using its
   // value attribute.
-  if (element.type === 'file' && 'files' in element) {
+  if (type === 'file' && 'files' in element) {
     if (element.multiple) {
-      value = slice.call(element.files)
+      value = slice.call(element.files);
       if (value.length === 0) {
-        value = null
+        value = null;
       }
-    }
-    else {
+    } else {
       // Should be null if not present, according to the spec
-      value = element.files[0]
+      value = element.files[0];
     }
-    return value
+    return value;
   }
 
-  if (!CHECKED_INPUT_TYPES[element.type]) {
-    value = (trim ? element.value.replace(TRIM_RE, '') : element.value)
-  }
-  else if (element.checked) {
-    value = element.value
+  if (!CHECKED_INPUT_TYPES[type]) {
+    value = trim ? element.value.replace(TRIM_RE, '') : element.value;
+  } else if (element.checked) {
+    value = element.value;
   }
 
-  return value
+  return value;
 }
 
-getFormData.getNamedFormElementData = getNamedFormElementData
+getFormData.getNamedFormElementData = getNamedFormElementData;
 
-module.exports = getFormData
-},{}],82:[function(require,module,exports){
+exports['default'] = getFormData;
+module.exports = exports['default'];
+},{}],84:[function(require,module,exports){
 'use strict';
 
 var hasOwn = Object.prototype.hasOwnProperty
@@ -8620,7 +8742,7 @@ module.exports = {
 , deepCopy: deepCopy
 }
 
-},{}],83:[function(require,module,exports){
+},{}],85:[function(require,module,exports){
 'use strict';
 
 var slice = Array.prototype.slice
@@ -8677,7 +8799,7 @@ module.exports = {
 , fileSize: fileSize
 }
 
-},{}],84:[function(require,module,exports){
+},{}],86:[function(require,module,exports){
 'use strict';
 
 var toString = Object.prototype.toString
@@ -8745,7 +8867,7 @@ module.exports = {
 , String: isString
 }
 
-},{}],85:[function(require,module,exports){
+},{}],87:[function(require,module,exports){
 'use strict';
 
 /**
@@ -8891,7 +9013,7 @@ module.exports = {
 , setDefault: setDefault
 }
 
-},{}],86:[function(require,module,exports){
+},{}],88:[function(require,module,exports){
 'use strict';
 
 var is = require('./is')
@@ -9244,7 +9366,7 @@ time.strftime = function(date, format, locale) {
 
 module.exports = time
 
-},{"./is":84}],87:[function(require,module,exports){
+},{"./is":86}],89:[function(require,module,exports){
 'use strict';
 
 // parseUri 1.2.2
@@ -9335,7 +9457,808 @@ module.exports = {
 , makeUri: makeUri
 }
 
-},{}],88:[function(require,module,exports){
+},{}],90:[function(require,module,exports){
+/*
+object-assign
+(c) Sindre Sorhus
+@license MIT
+*/
+
+'use strict';
+/* eslint-disable no-unused-vars */
+var getOwnPropertySymbols = Object.getOwnPropertySymbols;
+var hasOwnProperty = Object.prototype.hasOwnProperty;
+var propIsEnumerable = Object.prototype.propertyIsEnumerable;
+
+function toObject(val) {
+	if (val === null || val === undefined) {
+		throw new TypeError('Object.assign cannot be called with null or undefined');
+	}
+
+	return Object(val);
+}
+
+function shouldUseNative() {
+	try {
+		if (!Object.assign) {
+			return false;
+		}
+
+		// Detect buggy property enumeration order in older V8 versions.
+
+		// https://bugs.chromium.org/p/v8/issues/detail?id=4118
+		var test1 = new String('abc');  // eslint-disable-line no-new-wrappers
+		test1[5] = 'de';
+		if (Object.getOwnPropertyNames(test1)[0] === '5') {
+			return false;
+		}
+
+		// https://bugs.chromium.org/p/v8/issues/detail?id=3056
+		var test2 = {};
+		for (var i = 0; i < 10; i++) {
+			test2['_' + String.fromCharCode(i)] = i;
+		}
+		var order2 = Object.getOwnPropertyNames(test2).map(function (n) {
+			return test2[n];
+		});
+		if (order2.join('') !== '0123456789') {
+			return false;
+		}
+
+		// https://bugs.chromium.org/p/v8/issues/detail?id=3056
+		var test3 = {};
+		'abcdefghijklmnopqrst'.split('').forEach(function (letter) {
+			test3[letter] = letter;
+		});
+		if (Object.keys(Object.assign({}, test3)).join('') !==
+				'abcdefghijklmnopqrst') {
+			return false;
+		}
+
+		return true;
+	} catch (err) {
+		// We don't expect any of the above to throw, but better to be safe.
+		return false;
+	}
+}
+
+module.exports = shouldUseNative() ? Object.assign : function (target, source) {
+	var from;
+	var to = toObject(target);
+	var symbols;
+
+	for (var s = 1; s < arguments.length; s++) {
+		from = Object(arguments[s]);
+
+		for (var key in from) {
+			if (hasOwnProperty.call(from, key)) {
+				to[key] = from[key];
+			}
+		}
+
+		if (getOwnPropertySymbols) {
+			symbols = getOwnPropertySymbols(from);
+			for (var i = 0; i < symbols.length; i++) {
+				if (propIsEnumerable.call(from, symbols[i])) {
+					to[symbols[i]] = from[symbols[i]];
+				}
+			}
+		}
+	}
+
+	return to;
+};
+
+},{}],91:[function(require,module,exports){
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+'use strict';
+
+if ("development" !== 'production') {
+  var invariant = require('fbjs/lib/invariant');
+  var warning = require('fbjs/lib/warning');
+  var ReactPropTypesSecret = require('./lib/ReactPropTypesSecret');
+  var loggedTypeFailures = {};
+}
+
+/**
+ * Assert that the values match with the type specs.
+ * Error messages are memorized and will only be shown once.
+ *
+ * @param {object} typeSpecs Map of name to a ReactPropType
+ * @param {object} values Runtime values that need to be type-checked
+ * @param {string} location e.g. "prop", "context", "child context"
+ * @param {string} componentName Name of the component for error messages.
+ * @param {?Function} getStack Returns the component stack.
+ * @private
+ */
+function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
+  if ("development" !== 'production') {
+    for (var typeSpecName in typeSpecs) {
+      if (typeSpecs.hasOwnProperty(typeSpecName)) {
+        var error;
+        // Prop type validation may throw. In case they do, we don't want to
+        // fail the render phase where it didn't fail before. So we log it.
+        // After these have been cleaned up, we'll let them throw.
+        try {
+          // This is intentionally an invariant that gets caught. It's the same
+          // behavior as without this statement except with a better message.
+          invariant(typeof typeSpecs[typeSpecName] === 'function', '%s: %s type `%s` is invalid; it must be a function, usually from ' + 'the `prop-types` package, but received `%s`.', componentName || 'React class', location, typeSpecName, typeof typeSpecs[typeSpecName]);
+          error = typeSpecs[typeSpecName](values, typeSpecName, componentName, location, null, ReactPropTypesSecret);
+        } catch (ex) {
+          error = ex;
+        }
+        warning(!error || error instanceof Error, '%s: type specification of %s `%s` is invalid; the type checker ' + 'function must return `null` or an `Error` but returned a %s. ' + 'You may have forgotten to pass an argument to the type checker ' + 'creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and ' + 'shape all require an argument).', componentName || 'React class', location, typeSpecName, typeof error);
+        if (error instanceof Error && !(error.message in loggedTypeFailures)) {
+          // Only monitor this failure once because there tends to be a lot of the
+          // same error.
+          loggedTypeFailures[error.message] = true;
+
+          var stack = getStack ? getStack() : '';
+
+          warning(false, 'Failed %s type: %s%s', location, error.message, stack != null ? stack : '');
+        }
+      }
+    }
+  }
+}
+
+module.exports = checkPropTypes;
+
+},{"./lib/ReactPropTypesSecret":95,"fbjs/lib/invariant":81,"fbjs/lib/warning":82}],92:[function(require,module,exports){
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+'use strict';
+
+var emptyFunction = require('fbjs/lib/emptyFunction');
+var invariant = require('fbjs/lib/invariant');
+var ReactPropTypesSecret = require('./lib/ReactPropTypesSecret');
+
+module.exports = function() {
+  function shim(props, propName, componentName, location, propFullName, secret) {
+    if (secret === ReactPropTypesSecret) {
+      // It is still safe when called from React.
+      return;
+    }
+    invariant(
+      false,
+      'Calling PropTypes validators directly is not supported by the `prop-types` package. ' +
+      'Use PropTypes.checkPropTypes() to call them. ' +
+      'Read more at http://fb.me/use-check-prop-types'
+    );
+  };
+  shim.isRequired = shim;
+  function getShim() {
+    return shim;
+  };
+  // Important!
+  // Keep this list in sync with production version in `./factoryWithTypeCheckers.js`.
+  var ReactPropTypes = {
+    array: shim,
+    bool: shim,
+    func: shim,
+    number: shim,
+    object: shim,
+    string: shim,
+    symbol: shim,
+
+    any: shim,
+    arrayOf: getShim,
+    element: shim,
+    instanceOf: getShim,
+    node: shim,
+    objectOf: getShim,
+    oneOf: getShim,
+    oneOfType: getShim,
+    shape: getShim,
+    exact: getShim
+  };
+
+  ReactPropTypes.checkPropTypes = emptyFunction;
+  ReactPropTypes.PropTypes = ReactPropTypes;
+
+  return ReactPropTypes;
+};
+
+},{"./lib/ReactPropTypesSecret":95,"fbjs/lib/emptyFunction":80,"fbjs/lib/invariant":81}],93:[function(require,module,exports){
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+'use strict';
+
+var emptyFunction = require('fbjs/lib/emptyFunction');
+var invariant = require('fbjs/lib/invariant');
+var warning = require('fbjs/lib/warning');
+var assign = require('object-assign');
+
+var ReactPropTypesSecret = require('./lib/ReactPropTypesSecret');
+var checkPropTypes = require('./checkPropTypes');
+
+module.exports = function(isValidElement, throwOnDirectAccess) {
+  /* global Symbol */
+  var ITERATOR_SYMBOL = typeof Symbol === 'function' && Symbol.iterator;
+  var FAUX_ITERATOR_SYMBOL = '@@iterator'; // Before Symbol spec.
+
+  /**
+   * Returns the iterator method function contained on the iterable object.
+   *
+   * Be sure to invoke the function with the iterable as context:
+   *
+   *     var iteratorFn = getIteratorFn(myIterable);
+   *     if (iteratorFn) {
+   *       var iterator = iteratorFn.call(myIterable);
+   *       ...
+   *     }
+   *
+   * @param {?object} maybeIterable
+   * @return {?function}
+   */
+  function getIteratorFn(maybeIterable) {
+    var iteratorFn = maybeIterable && (ITERATOR_SYMBOL && maybeIterable[ITERATOR_SYMBOL] || maybeIterable[FAUX_ITERATOR_SYMBOL]);
+    if (typeof iteratorFn === 'function') {
+      return iteratorFn;
+    }
+  }
+
+  /**
+   * Collection of methods that allow declaration and validation of props that are
+   * supplied to React components. Example usage:
+   *
+   *   var Props = require('ReactPropTypes');
+   *   var MyArticle = React.createClass({
+   *     propTypes: {
+   *       // An optional string prop named "description".
+   *       description: Props.string,
+   *
+   *       // A required enum prop named "category".
+   *       category: Props.oneOf(['News','Photos']).isRequired,
+   *
+   *       // A prop named "dialog" that requires an instance of Dialog.
+   *       dialog: Props.instanceOf(Dialog).isRequired
+   *     },
+   *     render: function() { ... }
+   *   });
+   *
+   * A more formal specification of how these methods are used:
+   *
+   *   type := array|bool|func|object|number|string|oneOf([...])|instanceOf(...)
+   *   decl := ReactPropTypes.{type}(.isRequired)?
+   *
+   * Each and every declaration produces a function with the same signature. This
+   * allows the creation of custom validation functions. For example:
+   *
+   *  var MyLink = React.createClass({
+   *    propTypes: {
+   *      // An optional string or URI prop named "href".
+   *      href: function(props, propName, componentName) {
+   *        var propValue = props[propName];
+   *        if (propValue != null && typeof propValue !== 'string' &&
+   *            !(propValue instanceof URI)) {
+   *          return new Error(
+   *            'Expected a string or an URI for ' + propName + ' in ' +
+   *            componentName
+   *          );
+   *        }
+   *      }
+   *    },
+   *    render: function() {...}
+   *  });
+   *
+   * @internal
+   */
+
+  var ANONYMOUS = '<<anonymous>>';
+
+  // Important!
+  // Keep this list in sync with production version in `./factoryWithThrowingShims.js`.
+  var ReactPropTypes = {
+    array: createPrimitiveTypeChecker('array'),
+    bool: createPrimitiveTypeChecker('boolean'),
+    func: createPrimitiveTypeChecker('function'),
+    number: createPrimitiveTypeChecker('number'),
+    object: createPrimitiveTypeChecker('object'),
+    string: createPrimitiveTypeChecker('string'),
+    symbol: createPrimitiveTypeChecker('symbol'),
+
+    any: createAnyTypeChecker(),
+    arrayOf: createArrayOfTypeChecker,
+    element: createElementTypeChecker(),
+    instanceOf: createInstanceTypeChecker,
+    node: createNodeChecker(),
+    objectOf: createObjectOfTypeChecker,
+    oneOf: createEnumTypeChecker,
+    oneOfType: createUnionTypeChecker,
+    shape: createShapeTypeChecker,
+    exact: createStrictShapeTypeChecker,
+  };
+
+  /**
+   * inlined Object.is polyfill to avoid requiring consumers ship their own
+   * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is
+   */
+  /*eslint-disable no-self-compare*/
+  function is(x, y) {
+    // SameValue algorithm
+    if (x === y) {
+      // Steps 1-5, 7-10
+      // Steps 6.b-6.e: +0 != -0
+      return x !== 0 || 1 / x === 1 / y;
+    } else {
+      // Step 6.a: NaN == NaN
+      return x !== x && y !== y;
+    }
+  }
+  /*eslint-enable no-self-compare*/
+
+  /**
+   * We use an Error-like object for backward compatibility as people may call
+   * PropTypes directly and inspect their output. However, we don't use real
+   * Errors anymore. We don't inspect their stack anyway, and creating them
+   * is prohibitively expensive if they are created too often, such as what
+   * happens in oneOfType() for any type before the one that matched.
+   */
+  function PropTypeError(message) {
+    this.message = message;
+    this.stack = '';
+  }
+  // Make `instanceof Error` still work for returned errors.
+  PropTypeError.prototype = Error.prototype;
+
+  function createChainableTypeChecker(validate) {
+    if ("development" !== 'production') {
+      var manualPropTypeCallCache = {};
+      var manualPropTypeWarningCount = 0;
+    }
+    function checkType(isRequired, props, propName, componentName, location, propFullName, secret) {
+      componentName = componentName || ANONYMOUS;
+      propFullName = propFullName || propName;
+
+      if (secret !== ReactPropTypesSecret) {
+        if (throwOnDirectAccess) {
+          // New behavior only for users of `prop-types` package
+          invariant(
+            false,
+            'Calling PropTypes validators directly is not supported by the `prop-types` package. ' +
+            'Use `PropTypes.checkPropTypes()` to call them. ' +
+            'Read more at http://fb.me/use-check-prop-types'
+          );
+        } else if ("development" !== 'production' && typeof console !== 'undefined') {
+          // Old behavior for people using React.PropTypes
+          var cacheKey = componentName + ':' + propName;
+          if (
+            !manualPropTypeCallCache[cacheKey] &&
+            // Avoid spamming the console because they are often not actionable except for lib authors
+            manualPropTypeWarningCount < 3
+          ) {
+            warning(
+              false,
+              'You are manually calling a React.PropTypes validation ' +
+              'function for the `%s` prop on `%s`. This is deprecated ' +
+              'and will throw in the standalone `prop-types` package. ' +
+              'You may be seeing this warning due to a third-party PropTypes ' +
+              'library. See https://fb.me/react-warning-dont-call-proptypes ' + 'for details.',
+              propFullName,
+              componentName
+            );
+            manualPropTypeCallCache[cacheKey] = true;
+            manualPropTypeWarningCount++;
+          }
+        }
+      }
+      if (props[propName] == null) {
+        if (isRequired) {
+          if (props[propName] === null) {
+            return new PropTypeError('The ' + location + ' `' + propFullName + '` is marked as required ' + ('in `' + componentName + '`, but its value is `null`.'));
+          }
+          return new PropTypeError('The ' + location + ' `' + propFullName + '` is marked as required in ' + ('`' + componentName + '`, but its value is `undefined`.'));
+        }
+        return null;
+      } else {
+        return validate(props, propName, componentName, location, propFullName);
+      }
+    }
+
+    var chainedCheckType = checkType.bind(null, false);
+    chainedCheckType.isRequired = checkType.bind(null, true);
+
+    return chainedCheckType;
+  }
+
+  function createPrimitiveTypeChecker(expectedType) {
+    function validate(props, propName, componentName, location, propFullName, secret) {
+      var propValue = props[propName];
+      var propType = getPropType(propValue);
+      if (propType !== expectedType) {
+        // `propValue` being instance of, say, date/regexp, pass the 'object'
+        // check, but we can offer a more precise error message here rather than
+        // 'of type `object`'.
+        var preciseType = getPreciseType(propValue);
+
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + preciseType + '` supplied to `' + componentName + '`, expected ') + ('`' + expectedType + '`.'));
+      }
+      return null;
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createAnyTypeChecker() {
+    return createChainableTypeChecker(emptyFunction.thatReturnsNull);
+  }
+
+  function createArrayOfTypeChecker(typeChecker) {
+    function validate(props, propName, componentName, location, propFullName) {
+      if (typeof typeChecker !== 'function') {
+        return new PropTypeError('Property `' + propFullName + '` of component `' + componentName + '` has invalid PropType notation inside arrayOf.');
+      }
+      var propValue = props[propName];
+      if (!Array.isArray(propValue)) {
+        var propType = getPropType(propValue);
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected an array.'));
+      }
+      for (var i = 0; i < propValue.length; i++) {
+        var error = typeChecker(propValue, i, componentName, location, propFullName + '[' + i + ']', ReactPropTypesSecret);
+        if (error instanceof Error) {
+          return error;
+        }
+      }
+      return null;
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createElementTypeChecker() {
+    function validate(props, propName, componentName, location, propFullName) {
+      var propValue = props[propName];
+      if (!isValidElement(propValue)) {
+        var propType = getPropType(propValue);
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected a single ReactElement.'));
+      }
+      return null;
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createInstanceTypeChecker(expectedClass) {
+    function validate(props, propName, componentName, location, propFullName) {
+      if (!(props[propName] instanceof expectedClass)) {
+        var expectedClassName = expectedClass.name || ANONYMOUS;
+        var actualClassName = getClassName(props[propName]);
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + actualClassName + '` supplied to `' + componentName + '`, expected ') + ('instance of `' + expectedClassName + '`.'));
+      }
+      return null;
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createEnumTypeChecker(expectedValues) {
+    if (!Array.isArray(expectedValues)) {
+      "development" !== 'production' ? warning(false, 'Invalid argument supplied to oneOf, expected an instance of array.') : void 0;
+      return emptyFunction.thatReturnsNull;
+    }
+
+    function validate(props, propName, componentName, location, propFullName) {
+      var propValue = props[propName];
+      for (var i = 0; i < expectedValues.length; i++) {
+        if (is(propValue, expectedValues[i])) {
+          return null;
+        }
+      }
+
+      var valuesString = JSON.stringify(expectedValues);
+      return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of value `' + propValue + '` ' + ('supplied to `' + componentName + '`, expected one of ' + valuesString + '.'));
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createObjectOfTypeChecker(typeChecker) {
+    function validate(props, propName, componentName, location, propFullName) {
+      if (typeof typeChecker !== 'function') {
+        return new PropTypeError('Property `' + propFullName + '` of component `' + componentName + '` has invalid PropType notation inside objectOf.');
+      }
+      var propValue = props[propName];
+      var propType = getPropType(propValue);
+      if (propType !== 'object') {
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected an object.'));
+      }
+      for (var key in propValue) {
+        if (propValue.hasOwnProperty(key)) {
+          var error = typeChecker(propValue, key, componentName, location, propFullName + '.' + key, ReactPropTypesSecret);
+          if (error instanceof Error) {
+            return error;
+          }
+        }
+      }
+      return null;
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createUnionTypeChecker(arrayOfTypeCheckers) {
+    if (!Array.isArray(arrayOfTypeCheckers)) {
+      "development" !== 'production' ? warning(false, 'Invalid argument supplied to oneOfType, expected an instance of array.') : void 0;
+      return emptyFunction.thatReturnsNull;
+    }
+
+    for (var i = 0; i < arrayOfTypeCheckers.length; i++) {
+      var checker = arrayOfTypeCheckers[i];
+      if (typeof checker !== 'function') {
+        warning(
+          false,
+          'Invalid argument supplied to oneOfType. Expected an array of check functions, but ' +
+          'received %s at index %s.',
+          getPostfixForTypeWarning(checker),
+          i
+        );
+        return emptyFunction.thatReturnsNull;
+      }
+    }
+
+    function validate(props, propName, componentName, location, propFullName) {
+      for (var i = 0; i < arrayOfTypeCheckers.length; i++) {
+        var checker = arrayOfTypeCheckers[i];
+        if (checker(props, propName, componentName, location, propFullName, ReactPropTypesSecret) == null) {
+          return null;
+        }
+      }
+
+      return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` supplied to ' + ('`' + componentName + '`.'));
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createNodeChecker() {
+    function validate(props, propName, componentName, location, propFullName) {
+      if (!isNode(props[propName])) {
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` supplied to ' + ('`' + componentName + '`, expected a ReactNode.'));
+      }
+      return null;
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createShapeTypeChecker(shapeTypes) {
+    function validate(props, propName, componentName, location, propFullName) {
+      var propValue = props[propName];
+      var propType = getPropType(propValue);
+      if (propType !== 'object') {
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type `' + propType + '` ' + ('supplied to `' + componentName + '`, expected `object`.'));
+      }
+      for (var key in shapeTypes) {
+        var checker = shapeTypes[key];
+        if (!checker) {
+          continue;
+        }
+        var error = checker(propValue, key, componentName, location, propFullName + '.' + key, ReactPropTypesSecret);
+        if (error) {
+          return error;
+        }
+      }
+      return null;
+    }
+    return createChainableTypeChecker(validate);
+  }
+
+  function createStrictShapeTypeChecker(shapeTypes) {
+    function validate(props, propName, componentName, location, propFullName) {
+      var propValue = props[propName];
+      var propType = getPropType(propValue);
+      if (propType !== 'object') {
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type `' + propType + '` ' + ('supplied to `' + componentName + '`, expected `object`.'));
+      }
+      // We need to check all keys in case some are required but missing from
+      // props.
+      var allKeys = assign({}, props[propName], shapeTypes);
+      for (var key in allKeys) {
+        var checker = shapeTypes[key];
+        if (!checker) {
+          return new PropTypeError(
+            'Invalid ' + location + ' `' + propFullName + '` key `' + key + '` supplied to `' + componentName + '`.' +
+            '\nBad object: ' + JSON.stringify(props[propName], null, '  ') +
+            '\nValid keys: ' +  JSON.stringify(Object.keys(shapeTypes), null, '  ')
+          );
+        }
+        var error = checker(propValue, key, componentName, location, propFullName + '.' + key, ReactPropTypesSecret);
+        if (error) {
+          return error;
+        }
+      }
+      return null;
+    }
+
+    return createChainableTypeChecker(validate);
+  }
+
+  function isNode(propValue) {
+    switch (typeof propValue) {
+      case 'number':
+      case 'string':
+      case 'undefined':
+        return true;
+      case 'boolean':
+        return !propValue;
+      case 'object':
+        if (Array.isArray(propValue)) {
+          return propValue.every(isNode);
+        }
+        if (propValue === null || isValidElement(propValue)) {
+          return true;
+        }
+
+        var iteratorFn = getIteratorFn(propValue);
+        if (iteratorFn) {
+          var iterator = iteratorFn.call(propValue);
+          var step;
+          if (iteratorFn !== propValue.entries) {
+            while (!(step = iterator.next()).done) {
+              if (!isNode(step.value)) {
+                return false;
+              }
+            }
+          } else {
+            // Iterator will provide entry [k,v] tuples rather than values.
+            while (!(step = iterator.next()).done) {
+              var entry = step.value;
+              if (entry) {
+                if (!isNode(entry[1])) {
+                  return false;
+                }
+              }
+            }
+          }
+        } else {
+          return false;
+        }
+
+        return true;
+      default:
+        return false;
+    }
+  }
+
+  function isSymbol(propType, propValue) {
+    // Native Symbol.
+    if (propType === 'symbol') {
+      return true;
+    }
+
+    // 19.4.3.5 Symbol.prototype[@@toStringTag] === 'Symbol'
+    if (propValue['@@toStringTag'] === 'Symbol') {
+      return true;
+    }
+
+    // Fallback for non-spec compliant Symbols which are polyfilled.
+    if (typeof Symbol === 'function' && propValue instanceof Symbol) {
+      return true;
+    }
+
+    return false;
+  }
+
+  // Equivalent of `typeof` but with special handling for array and regexp.
+  function getPropType(propValue) {
+    var propType = typeof propValue;
+    if (Array.isArray(propValue)) {
+      return 'array';
+    }
+    if (propValue instanceof RegExp) {
+      // Old webkits (at least until Android 4.0) return 'function' rather than
+      // 'object' for typeof a RegExp. We'll normalize this here so that /bla/
+      // passes PropTypes.object.
+      return 'object';
+    }
+    if (isSymbol(propType, propValue)) {
+      return 'symbol';
+    }
+    return propType;
+  }
+
+  // This handles more types than `getPropType`. Only used for error messages.
+  // See `createPrimitiveTypeChecker`.
+  function getPreciseType(propValue) {
+    if (typeof propValue === 'undefined' || propValue === null) {
+      return '' + propValue;
+    }
+    var propType = getPropType(propValue);
+    if (propType === 'object') {
+      if (propValue instanceof Date) {
+        return 'date';
+      } else if (propValue instanceof RegExp) {
+        return 'regexp';
+      }
+    }
+    return propType;
+  }
+
+  // Returns a string that is postfixed to a warning about an invalid type.
+  // For example, "undefined" or "of type array"
+  function getPostfixForTypeWarning(value) {
+    var type = getPreciseType(value);
+    switch (type) {
+      case 'array':
+      case 'object':
+        return 'an ' + type;
+      case 'boolean':
+      case 'date':
+      case 'regexp':
+        return 'a ' + type;
+      default:
+        return type;
+    }
+  }
+
+  // Returns class name of the object, if any.
+  function getClassName(propValue) {
+    if (!propValue.constructor || !propValue.constructor.name) {
+      return ANONYMOUS;
+    }
+    return propValue.constructor.name;
+  }
+
+  ReactPropTypes.checkPropTypes = checkPropTypes;
+  ReactPropTypes.PropTypes = ReactPropTypes;
+
+  return ReactPropTypes;
+};
+
+},{"./checkPropTypes":91,"./lib/ReactPropTypesSecret":95,"fbjs/lib/emptyFunction":80,"fbjs/lib/invariant":81,"fbjs/lib/warning":82,"object-assign":90}],94:[function(require,module,exports){
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+if ("development" !== 'production') {
+  var REACT_ELEMENT_TYPE = (typeof Symbol === 'function' &&
+    Symbol.for &&
+    Symbol.for('react.element')) ||
+    0xeac7;
+
+  var isValidElement = function(object) {
+    return typeof object === 'object' &&
+      object !== null &&
+      object.$$typeof === REACT_ELEMENT_TYPE;
+  };
+
+  // By explicitly using `prop-types` you are opting into new development behavior.
+  // http://fb.me/prop-types-in-prod
+  var throwOnDirectAccess = true;
+  module.exports = require('./factoryWithTypeCheckers')(isValidElement, throwOnDirectAccess);
+} else {
+  // By explicitly using `prop-types` you are opting into new production behavior.
+  // http://fb.me/prop-types-in-prod
+  module.exports = require('./factoryWithThrowingShims')();
+}
+
+},{"./factoryWithThrowingShims":92,"./factoryWithTypeCheckers":93}],95:[function(require,module,exports){
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+'use strict';
+
+var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
+
+module.exports = ReactPropTypesSecret;
+
+},{}],96:[function(require,module,exports){
 'use strict';
 
 var Concur = require('Concur')
@@ -9498,13 +10421,13 @@ module.exports = {
   ValidationError: ValidationError
 }
 
-},{"Concur":79,"isomorph/format":83,"isomorph/is":84,"isomorph/object":85}],89:[function(require,module,exports){
+},{"Concur":78,"isomorph/format":85,"isomorph/is":86,"isomorph/object":87}],97:[function(require,module,exports){
 'use strict';
 
 // HACK: requiring './validators' here makes the circular import in ipv6.js work
 //       after browserification.
 module.exports = require('./validators')
-},{"./validators":91}],90:[function(require,module,exports){
+},{"./validators":99}],98:[function(require,module,exports){
 'use strict';
 
 var object = require('isomorph/object')
@@ -9788,7 +10711,7 @@ module.exports = {
 , isValidIPv6Address: isValidIPv6Address
 }
 
-},{"./errors":88,"./validators":91,"isomorph/object":85}],91:[function(require,module,exports){
+},{"./errors":96,"./validators":99,"isomorph/object":87}],99:[function(require,module,exports){
 'use strict';
 
 var Concur = require('Concur')
@@ -10134,5 +11057,5 @@ module.exports = {
 , ipv6: ipv6
 }
 
-},{"./errors":88,"./ipv6":90,"Concur":79,"isomorph/is":84,"isomorph/object":85,"isomorph/url":87,"punycode":80}]},{},[1])(1)
+},{"./errors":96,"./ipv6":98,"Concur":78,"isomorph/is":86,"isomorph/object":87,"isomorph/url":89,"punycode":79}]},{},[1])(1)
 });

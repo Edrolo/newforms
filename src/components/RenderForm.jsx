@@ -1,31 +1,33 @@
 'use strict';
 
+var React = require('react');
+var PropTypes = require('prop-types');
+
 var object = require('isomorph/object')
-var React = require('react')
 
 var ErrorObject = require('../ErrorObject')
 var Form = require('../Form')
 var FormRow = require('./FormRow')
-var ProgressMixin = require('./ProgressMixin')
+// var ProgressMixin = require('./ProgressMixin')
 
 var {NON_FIELD_ERRORS} = require('../constants')
 var {autoIdChecker, getProps} = require('../util')
 
 var formProps = {
   autoId: autoIdChecker
-, controlled: React.PropTypes.bool
-, data: React.PropTypes.object
-, emptyPermitted: React.PropTypes.bool
-, errorConstructor: React.PropTypes.func
-, errors: React.PropTypes.instanceOf(ErrorObject)
-, files: React.PropTypes.object
-, initial: React.PropTypes.object
-, labelSuffix: React.PropTypes.string
-, onChange: React.PropTypes.func
-, prefix: React.PropTypes.string
-, validation: React.PropTypes.oneOfType([
-    React.PropTypes.string
-  , React.PropTypes.object
+, controlled: PropTypes.bool
+, data: PropTypes.object
+, emptyPermitted: PropTypes.bool
+, errorConstructor: PropTypes.func
+, errors: PropTypes.instanceOf(ErrorObject)
+, files: PropTypes.object
+, initial: PropTypes.object
+, labelSuffix: PropTypes.string
+, onChange: PropTypes.func
+, prefix: PropTypes.string
+, validation: PropTypes.oneOfType([
+    PropTypes.string
+  , PropTypes.object
   ])
 }
 
@@ -34,26 +36,13 @@ var formProps = {
  * is given, an instance will be created when the component is mounted, and any
  * additional props will be passed to the constructor as options.
  */
-var RenderForm = React.createClass({
-  mixins: [ProgressMixin],
-  propTypes: object.extend({}, formProps, {
-    className: React.PropTypes.string      // Class for the component wrapping all rows
-  , component: React.PropTypes.any         // Component to wrap all rows
-  , form: React.PropTypes.oneOfType([      // Form instance or constructor
-      React.PropTypes.func,
-      React.PropTypes.instanceOf(Form)
-    ]).isRequired
-  , row: React.PropTypes.any               // Component to render form rows
-  , rowComponent: React.PropTypes.any      // Component to wrap each row
-  }),
 
-  childContextTypes: {
-    form: React.PropTypes.instanceOf(Form)
-  },
+ class RenderForm extends React.Component {
+  // mixins: [ProgressMixin],
 
   getChildContext() {
     return {form: this.form}
-  },
+  }
 
   getDefaultProps() {
     return {
@@ -61,7 +50,7 @@ var RenderForm = React.createClass({
     , row: FormRow
     , rowComponent: 'div'
     }
-  },
+  }
 
   componentWillMount() {
     if (this.props.form instanceof Form) {
@@ -72,11 +61,11 @@ var RenderForm = React.createClass({
         onChange: this.forceUpdate.bind(this)
       }, getProps(this.props, Object.keys(formProps))))
     }
-  },
+  }
 
   getForm() {
     return this.form
-  },
+  }
 
   render() {
     // Allow a single child to be passed for custom rendering - passing any more
@@ -132,6 +121,21 @@ var RenderForm = React.createClass({
       />}
     </props.component>
   }
-})
+}
+
+RenderForm.propTypes = object.assign({}, formProps, {
+  className: PropTypes.string      // Class for the component wrapping all rows
+, component: PropTypes.any         // Component to wrap all rows
+, form: PropTypes.oneOfType([      // Form instance or constructor
+    PropTypes.func,
+    PropTypes.instanceOf(Form)
+  ]).isRequired
+, row: PropTypes.any               // Component to render form rows
+, rowComponent: PropTypes.any      // Component to wrap each row
+});
+
+RenderForm.childContextTypes = {
+  form: PropTypes.instanceOf(Form)
+};
 
 module.exports = RenderForm

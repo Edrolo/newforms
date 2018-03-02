@@ -1,44 +1,25 @@
 'use strict';
 
-var React = require('react')
+var React = require('react');
+var PropTypes = require('prop-types');
 
 var BoundField = require('../BoundField')
-var ProgressMixin = require('./ProgressMixin')
+// var ProgressMixin = require('./ProgressMixin')
 
 /**
  * Renders a "row" in a form. This can contain manually provided contents, or
  * if a BoundField is given, it will be used to display a field's label, widget,
  * error message(s), help text and async pending indicator.
  */
-var FormRow = React.createClass({
-  mixins: [ProgressMixin],
-  propTypes: {
-    bf: React.PropTypes.instanceOf(BoundField)
-  , className: React.PropTypes.string
-  , component: React.PropTypes.any
-  , content: React.PropTypes.any
-  , hidden: React.PropTypes.bool
-  , __all__(props) {
-      if (!props.bf && !props.content) {
-        return new Error(
-          'Invalid props supplied to `FormRow`, either `bf` or `content` ' +
-          'must be specified.'
-        )
-      }
-      if (props.bf && props.content) {
-        return new Error(
-          'Both `bf` and `content` props were passed to `FormRow` - `bf` ' +
-          'will be ignored.'
-        )
-      }
-    }
-  },
+
+class FormRow extends React.Component {
+  // mixins: [ProgressMixin],
 
   getDefaultProps() {
     return {
       component: 'div'
     }
-  },
+  }
 
   render() {
     var attrs = {}
@@ -64,6 +45,14 @@ var FormRow = React.createClass({
       {bf.helpTextTag()}
     </this.props.component>
   }
-})
+}
+
+FormRow.propTypes = {
+  bf: PropTypes.instanceOf(BoundField)
+, className: PropTypes.string
+, component: PropTypes.any
+, content: PropTypes.any
+, hidden: PropTypes.bool
+};
 
 module.exports = FormRow

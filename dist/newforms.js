@@ -5823,7 +5823,7 @@ var formProps = {
   }});
 
 
-RenderForm.propTypes = object.assign({}, formProps, {
+RenderForm.propTypes = object.extend({}, formProps, {
   className: PropTypes.string      // Class for the component wrapping all rows
 , component: PropTypes.any         // Component to wrap all rows
 , form: PropTypes.oneOfType([      // Form instance or constructor
@@ -5943,7 +5943,7 @@ var ____Class2=React.Component;for(var ____Class2____Key in ____Class2){if(____C
   }});
 
 
-RenderFormSet.propTypes = object.assign({}, formsetProps, {
+RenderFormSet.propTypes = object.extend({}, formsetProps, {
   className: PropTypes.string         // Class for the component wrapping all forms
 , component: PropTypes.any            // Component to wrap all forms
 , formComponent: PropTypes.any        // Component to wrap each form

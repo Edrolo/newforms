@@ -100,7 +100,7 @@ class RenderFormSet extends React.Component {
   }
 }
 
-RenderFormSet.propTypes = object.assign({}, formsetProps, {
+RenderFormSet.propTypes = object.extend({}, formsetProps, {
   className: PropTypes.string         // Class for the component wrapping all forms
 , component: PropTypes.any            // Component to wrap all forms
 , formComponent: PropTypes.any        // Component to wrap each form

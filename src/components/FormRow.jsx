@@ -15,11 +15,6 @@ var BoundField = require('../BoundField')
 class FormRow extends React.Component {
   // mixins: [ProgressMixin],
 
-  getDefaultProps() {
-    return {
-      component: 'div'
-    }
-  }
 
   render() {
     var attrs = {}
@@ -46,6 +41,10 @@ class FormRow extends React.Component {
     </this.props.component>
   }
 }
+
+FormRow.defaultProps = {
+  component: 'div'
+};
 
 FormRow.propTypes = {
   bf: PropTypes.instanceOf(BoundField)

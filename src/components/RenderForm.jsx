@@ -44,14 +44,6 @@ var formProps = {
     return {form: this.form}
   }
 
-  getDefaultProps() {
-    return {
-      component: 'div'
-    , row: FormRow
-    , rowComponent: 'div'
-    }
-  }
-
   componentWillMount() {
     if (this.props.form instanceof Form) {
       this.form = this.props.form
@@ -123,6 +115,12 @@ var formProps = {
   }
 }
 
+RenderForm.defaultProps = {
+    component: 'div'
+  , row: FormRow
+  , rowComponent: 'div'
+};
+
 RenderForm.propTypes = object.extend({}, formProps, {
   className: PropTypes.string      // Class for the component wrapping all rows
 , component: PropTypes.any         // Component to wrap all rows
@@ -137,5 +135,6 @@ RenderForm.propTypes = object.extend({}, formProps, {
 RenderForm.childContextTypes = {
   form: PropTypes.instanceOf(Form)
 };
+
 
 module.exports = RenderForm

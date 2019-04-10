@@ -6,9 +6,13 @@
 'use strict';
 
 var validators = require('validators')
+var React = (typeof window !== "undefined" ? window['React'] : typeof global !== "undefined" ? global['React'] : null);
 
 var locales = require('./locales')
 var util = require('./util')
+
+// hack it in
+React.__spread = Object.assign;
 
 module.exports = {
   addLocale: locales.addLocale
@@ -92,6 +96,7 @@ module.exports = {
 , validators: validators
 , Widget: require('./Widget')
 }
+
 },{"./BaseTemporalField":2,"./BooleanField":3,"./BoundField":4,"./CharField":5,"./CheckboxChoiceInput":6,"./CheckboxFieldRenderer":7,"./CheckboxInput":8,"./CheckboxSelectMultiple":9,"./ChoiceField":10,"./ChoiceFieldRenderer":11,"./ChoiceInput":12,"./ClearableFileInput":13,"./ComboField":14,"./DateField":15,"./DateInput":16,"./DateTimeBaseInput":17,"./DateTimeField":18,"./DateTimeInput":19,"./DecimalField":20,"./EmailField":22,"./EmailInput":23,"./ErrorList":24,"./ErrorObject":25,"./Field":26,"./FileField":27,"./FileInput":28,"./FilePathField":29,"./FloatField":30,"./Form":31,"./FormRow":32,"./FormSet":33,"./GenericIPAddressField":34,"./HiddenInput":35,"./IPAddressField":36,"./ImageField":37,"./Input":38,"./IntegerField":39,"./MultiValueField":40,"./MultiWidget":41,"./MultipleChoiceField":42,"./MultipleFileField":43,"./MultipleHiddenInput":44,"./NullBooleanField":45,"./NullBooleanSelect":46,"./NumberInput":47,"./PasswordInput":48,"./RadioChoiceInput":49,"./RadioFieldRenderer":50,"./RadioSelect":51,"./RegexField":52,"./RenderForm":53,"./RenderFormSet":54,"./RendererMixin":55,"./Select":56,"./SelectMultiple":57,"./SlugField":58,"./SplitDateTimeField":59,"./SplitDateTimeWidget":60,"./SplitHiddenDateTimeWidget":61,"./SubWidget":62,"./TextInput":63,"./Textarea":64,"./TimeField":65,"./TimeInput":66,"./TypedChoiceField":67,"./TypedMultipleChoiceField":68,"./URLField":69,"./Widget":71,"./env":73,"./formats":74,"./isFormAsync":75,"./locales":76,"./util":77,"validators":97}],2:[function(require,module,exports){
 'use strict';
 
@@ -177,7 +182,7 @@ BaseTemporalField.prototype._hasChanged = function(initial, data) {
 
 
 module.exports = BaseTemporalField
-},{"./Field":26,"./formats":74,"./locales":76,"./util":77,"isomorph/is":86,"isomorph/object":87,"isomorph/time":88,"validators":97}],3:[function(require,module,exports){
+},{"./Field":26,"./formats":74,"./locales":76,"./util":77,"isomorph/is":83,"isomorph/object":84,"isomorph/time":85,"validators":97}],3:[function(require,module,exports){
 'use strict';
 
 var is = require('isomorph/is')
@@ -231,7 +236,7 @@ BooleanField.prototype._hasChanged = function(initial, data) {
 }
 
 module.exports = BooleanField
-},{"./CheckboxInput":8,"./Field":26,"isomorph/is":86,"validators":97}],4:[function(require,module,exports){
+},{"./CheckboxInput":8,"./Field":26,"isomorph/is":83,"validators":97}],4:[function(require,module,exports){
 'use strict';
 
 var Concur = require('Concur')
@@ -657,7 +662,7 @@ BoundField.prototype._getValidation = function(widget) {
 }
 
 module.exports = BoundField
-},{"./TextInput":63,"./Textarea":64,"./util":77,"Concur":78,"isomorph/format":85,"isomorph/is":86,"isomorph/object":87}],5:[function(require,module,exports){
+},{"./TextInput":63,"./Textarea":64,"./util":77,"Concur":78,"isomorph/format":82,"isomorph/is":83,"isomorph/object":84}],5:[function(require,module,exports){
 'use strict';
 
 var object = require('isomorph/object')
@@ -716,7 +721,7 @@ CharField.prototype.getWidgetAttrs = function(widget) {
 }
 
 module.exports = CharField
-},{"./Field":26,"./PasswordInput":48,"./TextInput":63,"isomorph/object":87,"validators":97}],6:[function(require,module,exports){
+},{"./Field":26,"./PasswordInput":48,"./TextInput":63,"isomorph/object":84,"validators":97}],6:[function(require,module,exports){
 'use strict';
 
 var is = require('isomorph/is')
@@ -744,7 +749,7 @@ CheckboxChoiceInput.prototype.isChecked = function() {
 }
 
 module.exports = CheckboxChoiceInput
-},{"./ChoiceInput":12,"isomorph/is":86}],7:[function(require,module,exports){
+},{"./ChoiceInput":12,"isomorph/is":83}],7:[function(require,module,exports){
 'use strict';
 
 var CheckboxChoiceInput = require('./CheckboxChoiceInput')
@@ -820,7 +825,7 @@ CheckboxInput.prototype.valueFromData = function(data, files, name) {
 }
 
 module.exports = CheckboxInput
-},{"./Widget":71,"isomorph/is":86,"isomorph/object":87}],9:[function(require,module,exports){
+},{"./Widget":71,"isomorph/is":83,"isomorph/object":84}],9:[function(require,module,exports){
 'use strict';
 
 var CheckboxFieldRenderer = require('./CheckboxFieldRenderer')
@@ -927,7 +932,7 @@ ChoiceField.prototype.validValue = function(value) {
 }
 
 module.exports = ChoiceField
-},{"./Field":26,"./Select":56,"./util":77,"isomorph/is":86,"isomorph/object":87,"validators":97}],11:[function(require,module,exports){
+},{"./Field":26,"./Select":56,"./util":77,"isomorph/is":83,"isomorph/object":84,"validators":97}],11:[function(require,module,exports){
 'use strict';
 
 var Concur = require('Concur')
@@ -1023,7 +1028,7 @@ ChoiceFieldRenderer.prototype.render = function() {
 }
 
 module.exports = ChoiceFieldRenderer
-},{"Concur":78,"isomorph/is":86,"isomorph/object":87}],12:[function(require,module,exports){
+},{"Concur":78,"isomorph/is":83,"isomorph/object":84}],12:[function(require,module,exports){
 'use strict';
 
 var object = require('isomorph/object')
@@ -1087,7 +1092,7 @@ ChoiceInput.prototype.idForLabel = function() {
 }
 
 module.exports = ChoiceInput
-},{"./SubWidget":62,"./Widget":71,"isomorph/object":87}],13:[function(require,module,exports){
+},{"./SubWidget":62,"./Widget":71,"isomorph/object":84}],13:[function(require,module,exports){
 'use strict';
 
 var object = require('isomorph/object')
@@ -1202,7 +1207,7 @@ ClearableFileInput.prototype.valueFromData = function(data, files, name) {
 }
 
 module.exports = ClearableFileInput
-},{"./CheckboxInput":8,"./FileInput":28,"./util":77,"isomorph/object":87}],14:[function(require,module,exports){
+},{"./CheckboxInput":8,"./FileInput":28,"./util":77,"isomorph/object":84}],14:[function(require,module,exports){
 'use strict';
 
 var object = require('isomorph/object')
@@ -1238,7 +1243,7 @@ ComboField.prototype.clean = function(value) {
 }
 
 module.exports = ComboField
-},{"./Field":26,"isomorph/object":87}],15:[function(require,module,exports){
+},{"./Field":26,"isomorph/object":84}],15:[function(require,module,exports){
 'use strict';
 
 var BaseTemporalField = require('./BaseTemporalField')
@@ -1338,7 +1343,7 @@ DateTimeBaseInput.prototype._formatValue = function(value) {
 }
 
 module.exports = DateTimeBaseInput
-},{"./TextInput":63,"./formats":74,"./locales":76,"isomorph/is":86,"isomorph/object":87,"isomorph/time":88}],18:[function(require,module,exports){
+},{"./TextInput":63,"./formats":74,"./locales":76,"isomorph/is":83,"isomorph/object":84,"isomorph/time":85}],18:[function(require,module,exports){
 'use strict';
 
 var is = require('isomorph/is')
@@ -1395,7 +1400,7 @@ DateTimeField.prototype.toJavaScript = function(value) {
 
 
 module.exports = DateTimeField
-},{"./BaseTemporalField":2,"./DateTimeInput":19,"isomorph/is":86,"validators":97}],19:[function(require,module,exports){
+},{"./BaseTemporalField":2,"./DateTimeInput":19,"isomorph/is":83,"validators":97}],19:[function(require,module,exports){
 'use strict';
 
 var DateTimeBaseInput = require('./DateTimeBaseInput')
@@ -1559,7 +1564,7 @@ DecimalField.prototype.getWidgetAttrs = function(widget) {
 }
 
 module.exports = DecimalField
-},{"./Field":26,"./IntegerField":39,"./util":77,"isomorph/object":87,"validators":97}],21:[function(require,module,exports){
+},{"./Field":26,"./IntegerField":39,"./util":77,"isomorph/object":84,"validators":97}],21:[function(require,module,exports){
 'use strict';
 
 var is = require('isomorph/is')
@@ -1660,7 +1665,7 @@ function DeclarativeFieldsMeta(prototypeProps) {
 }
 
 module.exports = DeclarativeFieldsMeta
-},{"./Field":26,"isomorph/is":86,"isomorph/object":87}],22:[function(require,module,exports){
+},{"./Field":26,"isomorph/is":83,"isomorph/object":84}],22:[function(require,module,exports){
 'use strict';
 
 var util = require('./util')
@@ -1858,7 +1863,7 @@ ErrorList.prototype.fromJSON = function(list) {
 
 module.exports = ErrorList
 
-},{"Concur":78,"isomorph/object":87,"validators":97}],25:[function(require,module,exports){
+},{"Concur":78,"isomorph/object":84,"validators":97}],25:[function(require,module,exports){
 'use strict';
 
 var Concur = require('Concur')
@@ -2021,7 +2026,7 @@ ErrorObject.prototype.fromJSON = function(jsonObj, errorConstructor) {
 
 module.exports = ErrorObject
 
-},{"./ErrorList":24,"Concur":78,"isomorph/object":87}],26:[function(require,module,exports){
+},{"./ErrorList":24,"Concur":78,"isomorph/object":84}],26:[function(require,module,exports){
 'use strict';
 
 var Concur = require('Concur')
@@ -2217,7 +2222,7 @@ Field.prototype._hasChanged = function(initial, data) {
 }
 
 module.exports = Field
-},{"./HiddenInput":35,"./TextInput":63,"./Widget":71,"./util":77,"Concur":78,"isomorph/is":86,"isomorph/object":87,"validators":97}],27:[function(require,module,exports){
+},{"./HiddenInput":35,"./TextInput":63,"./Widget":71,"./util":77,"Concur":78,"isomorph/is":83,"isomorph/object":84,"validators":97}],27:[function(require,module,exports){
 'use strict';
 
 var is = require('isomorph/is')
@@ -2327,7 +2332,7 @@ FileField.prototype._hasChanged = function(initial, data) {
 }
 
 module.exports = FileField
-},{"./ClearableFileInput":13,"./Field":26,"./env":73,"isomorph/is":86,"isomorph/object":87,"validators":97}],28:[function(require,module,exports){
+},{"./ClearableFileInput":13,"./Field":26,"./env":73,"isomorph/is":83,"isomorph/object":84,"validators":97}],28:[function(require,module,exports){
 'use strict';
 
 var object = require('isomorph/object')
@@ -2370,7 +2375,7 @@ FileInput.prototype.valueFromData = function(data, files, name) {
 }
 
 module.exports = FileInput
-},{"./Input":38,"./env":73,"isomorph/object":87}],29:[function(require,module,exports){
+},{"./Input":38,"./env":73,"isomorph/object":84}],29:[function(require,module,exports){
 'use strict';
 
 var object = require('isomorph/object')
@@ -2422,7 +2427,7 @@ var FilePathField = ChoiceField.extend({
 })
 
 module.exports = FilePathField
-},{"./ChoiceField":10,"isomorph/object":87}],30:[function(require,module,exports){
+},{"./ChoiceField":10,"isomorph/object":84}],30:[function(require,module,exports){
 'use strict';
 
 var object = require('isomorph/object')
@@ -2507,7 +2512,7 @@ FloatField.prototype.getWidgetAttrs = function(widget) {
 }
 
 module.exports = FloatField
-},{"./Field":26,"./IntegerField":39,"./util":77,"isomorph/object":87,"validators":97}],31:[function(require,module,exports){
+},{"./Field":26,"./IntegerField":39,"./util":77,"isomorph/object":84,"validators":97}],31:[function(require,module,exports){
 'use strict';
 
 var Concur = require('Concur')
@@ -3722,7 +3727,7 @@ Form.prototype._prefixData = function(data) {
 }
 
 module.exports = Form
-},{"./BoundField":4,"./DeclarativeFieldsMeta":21,"./ErrorList":24,"./ErrorObject":25,"./FileField":27,"./MultipleFileField":43,"./constants":72,"./util":77,"Concur":78,"get-form-data":83,"isomorph/copy":84,"isomorph/format":85,"isomorph/is":86,"isomorph/object":87,"validators":97}],32:[function(require,module,exports){
+},{"./BoundField":4,"./DeclarativeFieldsMeta":21,"./ErrorList":24,"./ErrorObject":25,"./FileField":27,"./MultipleFileField":43,"./constants":72,"./util":77,"Concur":78,"get-form-data":80,"isomorph/copy":81,"isomorph/format":82,"isomorph/is":83,"isomorph/object":84,"validators":97}],32:[function(require,module,exports){
 'use strict';
 
 var React = (typeof window !== "undefined" ? window['React'] : typeof global !== "undefined" ? global['React'] : null);
@@ -3740,11 +3745,6 @@ var BoundField = require('./BoundField')
 var ____Class0=React.Component;for(var ____Class0____Key in ____Class0){if(____Class0.hasOwnProperty(____Class0____Key)){FormRow[____Class0____Key]=____Class0[____Class0____Key];}}var ____SuperProtoOf____Class0=____Class0===null?null:____Class0.prototype;FormRow.prototype=Object.create(____SuperProtoOf____Class0);FormRow.prototype.constructor=FormRow;FormRow.__superConstructor__=____Class0;function FormRow(){if(____Class0!==null){____Class0.apply(this,arguments);}}
   // mixins: [ProgressMixin],
 
-  Object.defineProperty(FormRow.prototype,"getDefaultProps",{writable:true,configurable:true,value:function() {
-    return {
-      component: 'div'
-    }
-  }});
 
   Object.defineProperty(FormRow.prototype,"render",{writable:true,configurable:true,value:function() {
     var attrs = {}
@@ -3772,6 +3772,10 @@ var ____Class0=React.Component;for(var ____Class0____Key in ____Class0){if(____C
   }});
 
 
+FormRow.defaultProps = {
+  component: 'div'
+};
+
 FormRow.propTypes = {
   bf: PropTypes.instanceOf(BoundField)
 , className: PropTypes.string
@@ -3781,7 +3785,8 @@ FormRow.propTypes = {
 };
 
 module.exports = FormRow
-},{"./BoundField":4,"prop-types":94}],33:[function(require,module,exports){
+
+},{"./BoundField":4,"prop-types":91}],33:[function(require,module,exports){
 'use strict';
 
 var Concur = require('Concur')
@@ -4692,7 +4697,7 @@ FormSet.prototype.getDefaultPrefix = function() {
 }
 
 module.exports = FormSet
-},{"./BooleanField":3,"./ErrorList":24,"./Form":31,"./HiddenInput":35,"./IntegerField":39,"./constants":72,"./env":73,"./isFormAsync":75,"./util":77,"Concur":78,"get-form-data":83,"isomorph/format":85,"isomorph/is":86,"isomorph/object":87,"validators":97}],34:[function(require,module,exports){
+},{"./BooleanField":3,"./ErrorList":24,"./Form":31,"./HiddenInput":35,"./IntegerField":39,"./constants":72,"./env":73,"./isFormAsync":75,"./util":77,"Concur":78,"get-form-data":80,"isomorph/format":82,"isomorph/is":83,"isomorph/object":84,"validators":97}],34:[function(require,module,exports){
 'use strict';
 
 var object = require('isomorph/object')
@@ -4725,7 +4730,7 @@ GenericIPAddressField.prototype.toJavaScript = function(value) {
 
 
 module.exports = GenericIPAddressField
-},{"./CharField":5,"isomorph/object":87,"validators":97}],35:[function(require,module,exports){
+},{"./CharField":5,"isomorph/object":84,"validators":97}],35:[function(require,module,exports){
 'use strict';
 
 var Input = require('./Input')
@@ -4858,7 +4863,7 @@ Input.prototype.render = function(name, value, kwargs) {
 }
 
 module.exports = Input
-},{"./Widget":71,"isomorph/object":87}],39:[function(require,module,exports){
+},{"./Widget":71,"isomorph/object":84}],39:[function(require,module,exports){
 'use strict';
 
 var object = require('isomorph/object')
@@ -4926,7 +4931,7 @@ IntegerField.prototype.getWidgetAttrs = function(widget) {
 }
 
 module.exports = IntegerField
-},{"./Field":26,"./NumberInput":47,"isomorph/object":87,"validators":97}],40:[function(require,module,exports){
+},{"./Field":26,"./NumberInput":47,"isomorph/object":84,"validators":97}],40:[function(require,module,exports){
 'use strict';
 
 var is = require('isomorph/is')
@@ -5100,7 +5105,7 @@ MultiValueField.prototype._hasChanged = function(initial, data) {
 }
 
 module.exports = MultiValueField
-},{"./Field":26,"isomorph/is":86,"isomorph/object":87,"validators":97}],41:[function(require,module,exports){
+},{"./Field":26,"isomorph/is":83,"isomorph/object":84,"validators":97}],41:[function(require,module,exports){
 'use strict';
 
 var is = require('isomorph/is')
@@ -5216,7 +5221,7 @@ MultiWidget.prototype.decompress = function(value) {
 }
 
 module.exports = MultiWidget
-},{"./Widget":71,"isomorph/is":86,"isomorph/object":87}],42:[function(require,module,exports){
+},{"./Widget":71,"isomorph/is":83,"isomorph/object":84}],42:[function(require,module,exports){
 'use strict';
 
 var is = require('isomorph/is')
@@ -5302,7 +5307,7 @@ MultipleChoiceField.prototype._hasChanged = function(initial, data) {
 }
 
 module.exports = MultipleChoiceField
-},{"./ChoiceField":10,"./MultipleHiddenInput":44,"./SelectMultiple":57,"isomorph/is":86,"isomorph/object":87,"validators":97}],43:[function(require,module,exports){
+},{"./ChoiceField":10,"./MultipleHiddenInput":44,"./SelectMultiple":57,"isomorph/is":83,"isomorph/object":84,"validators":97}],43:[function(require,module,exports){
 'use strict';
 
 var is = require('isomorph/is')
@@ -5402,7 +5407,7 @@ MultipleFileField.prototype._hasChanged = function(initial, data) {
 }
 
 module.exports = MultipleFileField
-},{"./Field":26,"./FileField":27,"./FileInput":28,"./env":73,"isomorph/is":86,"validators":97}],44:[function(require,module,exports){
+},{"./Field":26,"./FileField":27,"./FileInput":28,"./env":73,"isomorph/is":83,"validators":97}],44:[function(require,module,exports){
 'use strict';
 
 var object = require('isomorph/object')
@@ -5456,7 +5461,7 @@ MultipleHiddenInput.prototype.valueFromData = function(data, files, name) {
 }
 
 module.exports = MultipleHiddenInput
-},{"./HiddenInput":35,"isomorph/object":87}],45:[function(require,module,exports){
+},{"./HiddenInput":35,"isomorph/object":84}],45:[function(require,module,exports){
 'use strict';
 
 var BooleanField = require('./BooleanField')
@@ -5609,7 +5614,7 @@ PasswordInput.prototype.render = function(name, value, kwargs) {
 }
 
 module.exports = PasswordInput
-},{"./TextInput":63,"./env":73,"isomorph/object":87}],49:[function(require,module,exports){
+},{"./TextInput":63,"./env":73,"isomorph/object":84}],49:[function(require,module,exports){
 'use strict';
 
 var ChoiceInput = require('./ChoiceInput')
@@ -5697,7 +5702,7 @@ var RegexField = CharField.extend({
 })
 
 module.exports = RegexField
-},{"./CharField":5,"isomorph/is":86,"validators":97}],53:[function(require,module,exports){
+},{"./CharField":5,"isomorph/is":83,"validators":97}],53:[function(require,module,exports){
 'use strict';
 
 var React = (typeof window !== "undefined" ? window['React'] : typeof global !== "undefined" ? global['React'] : null);
@@ -5742,14 +5747,6 @@ var formProps = {
 
   Object.defineProperty(RenderForm.prototype,"getChildContext",{writable:true,configurable:true,value:function() {
     return {form: this.form}
-  }});
-
-  Object.defineProperty(RenderForm.prototype,"getDefaultProps",{writable:true,configurable:true,value:function() {
-    return {
-      component: 'div'
-    , row: FormRow
-    , rowComponent: 'div'
-    }
   }});
 
   Object.defineProperty(RenderForm.prototype,"componentWillMount",{writable:true,configurable:true,value:function() {
@@ -5823,6 +5820,12 @@ var formProps = {
   }});
 
 
+RenderForm.defaultProps = {
+    component: 'div'
+  , row: FormRow
+  , rowComponent: 'div'
+};
+
 RenderForm.propTypes = object.extend({}, formProps, {
   className: PropTypes.string      // Class for the component wrapping all rows
 , component: PropTypes.any         // Component to wrap all rows
@@ -5838,9 +5841,10 @@ RenderForm.childContextTypes = {
   form: PropTypes.instanceOf(Form)
 };
 
+
 module.exports = RenderForm
 
-},{"./ErrorObject":25,"./Form":31,"./FormRow":32,"./constants":72,"./util":77,"isomorph/object":87,"prop-types":94}],54:[function(require,module,exports){
+},{"./ErrorObject":25,"./Form":31,"./FormRow":32,"./constants":72,"./util":77,"isomorph/object":84,"prop-types":91}],54:[function(require,module,exports){
 'use strict';
 
 var React = (typeof window !== "undefined" ? window['React'] : typeof global !== "undefined" ? global['React'] : null);
@@ -5966,7 +5970,7 @@ RenderFormSet.defaultProps = {
 };
 
 module.exports = RenderFormSet
-},{"./FormRow":32,"./FormSet":33,"./RenderForm":53,"./constants":72,"./util":77,"isomorph/object":87,"prop-types":94}],55:[function(require,module,exports){
+},{"./FormRow":32,"./FormSet":33,"./RenderForm":53,"./constants":72,"./util":77,"isomorph/object":84,"prop-types":91}],55:[function(require,module,exports){
 'use strict';
 
 var Concur = require('Concur')
@@ -6020,7 +6024,7 @@ RendererMixin.prototype.idForLabel = function(id) {
 }
 
 module.exports = RendererMixin
-},{"Concur":78,"isomorph/object":87}],56:[function(require,module,exports){
+},{"Concur":78,"isomorph/object":84}],56:[function(require,module,exports){
 'use strict';
 
 var is = require('isomorph/is')
@@ -6102,7 +6106,7 @@ Select.prototype.renderOption = function(optValue, optLabel) {
 
 module.exports = Select
 
-},{"./Widget":71,"./util":77,"isomorph/is":86,"isomorph/object":87}],57:[function(require,module,exports){
+},{"./Widget":71,"./util":77,"isomorph/is":83,"isomorph/object":84}],57:[function(require,module,exports){
 'use strict';
 
 var is = require('isomorph/is')
@@ -6167,7 +6171,7 @@ SelectMultiple.prototype.valueFromData = function(data, files, name) {
 
 module.exports = SelectMultiple
 
-},{"./Select":56,"isomorph/is":86,"isomorph/object":87}],58:[function(require,module,exports){
+},{"./Select":56,"isomorph/is":83,"isomorph/object":84}],58:[function(require,module,exports){
 'use strict';
 
 var validators = require('validators')
@@ -6269,7 +6273,7 @@ SplitDateTimeField.prototype.compress = function(dataList) {
 }
 
 module.exports = SplitDateTimeField
-},{"./DateField":15,"./MultiValueField":40,"./SplitDateTimeWidget":60,"./SplitHiddenDateTimeWidget":61,"./TimeField":65,"isomorph/is":86,"isomorph/object":87,"validators":97}],60:[function(require,module,exports){
+},{"./DateField":15,"./MultiValueField":40,"./SplitDateTimeWidget":60,"./SplitHiddenDateTimeWidget":61,"./TimeField":65,"isomorph/is":83,"isomorph/object":84,"validators":97}],60:[function(require,module,exports){
 'use strict';
 
 var object = require('isomorph/object')
@@ -6307,7 +6311,7 @@ SplitDateTimeWidget.prototype.decompress = function(value) {
 }
 
 module.exports = SplitDateTimeWidget
-},{"./DateInput":16,"./MultiWidget":41,"./TimeInput":66,"isomorph/object":87}],61:[function(require,module,exports){
+},{"./DateInput":16,"./MultiWidget":41,"./TimeInput":66,"isomorph/object":84}],61:[function(require,module,exports){
 'use strict';
 
 var SplitDateTimeWidget = require('./SplitDateTimeWidget')
@@ -6365,7 +6369,7 @@ SubWidget.prototype.render = function() {
 }
 
 module.exports = SubWidget
-},{"Concur":78,"isomorph/object":87}],63:[function(require,module,exports){
+},{"Concur":78,"isomorph/object":84}],63:[function(require,module,exports){
 'use strict';
 
 var object = require('isomorph/object')
@@ -6391,7 +6395,7 @@ var TextInput = Input.extend({
 })
 
 module.exports = TextInput
-},{"./Input":38,"isomorph/object":87}],64:[function(require,module,exports){
+},{"./Input":38,"isomorph/object":84}],64:[function(require,module,exports){
 'use strict';
 
 var object = require('isomorph/object')
@@ -6431,7 +6435,7 @@ Textarea.prototype.render = function(name, value, kwargs) {
 }
 
 module.exports = Textarea
-},{"./Widget":71,"isomorph/object":87}],65:[function(require,module,exports){
+},{"./Widget":71,"isomorph/object":84}],65:[function(require,module,exports){
 'use strict';
 
 var time = require('isomorph/time')
@@ -6490,7 +6494,7 @@ TimeField.prototype.strpdate = function(value, format) {
 }
 
 module.exports = TimeField
-},{"./BaseTemporalField":2,"./TimeInput":66,"./locales":76,"isomorph/time":88}],66:[function(require,module,exports){
+},{"./BaseTemporalField":2,"./TimeInput":66,"./locales":76,"isomorph/time":85}],66:[function(require,module,exports){
 'use strict';
 
 var DateTimeBaseInput = require('./DateTimeBaseInput')
@@ -6562,7 +6566,7 @@ TypedChoiceField.prototype.clean = function(value) {
 
 
 module.exports = TypedChoiceField
-},{"./ChoiceField":10,"isomorph/object":87,"validators":97}],68:[function(require,module,exports){
+},{"./ChoiceField":10,"isomorph/object":84,"validators":97}],68:[function(require,module,exports){
 'use strict';
 
 var is = require('isomorph/is')
@@ -6624,7 +6628,7 @@ TypedMultipleChoiceField.prototype.validate = function(value) {
 }
 
 module.exports = TypedMultipleChoiceField
-},{"./MultipleChoiceField":42,"isomorph/is":86,"isomorph/object":87,"validators":97}],69:[function(require,module,exports){
+},{"./MultipleChoiceField":42,"isomorph/is":83,"isomorph/object":84,"validators":97}],69:[function(require,module,exports){
 'use strict';
 
 var url = require('isomorph/url')
@@ -6676,7 +6680,7 @@ URLField.prototype.clean = function(value) {
 }
 
 module.exports = URLField
-},{"./CharField":5,"./URLInput":70,"./util":77,"isomorph/url":89,"validators":97}],70:[function(require,module,exports){
+},{"./CharField":5,"./URLInput":70,"./util":77,"isomorph/url":86,"validators":97}],70:[function(require,module,exports){
 'use strict';
 
 var TextInput = require('./TextInput')
@@ -6779,7 +6783,7 @@ Widget.prototype.idForLabel = function(id) {
 }
 
 module.exports = Widget
-},{"./SubWidget":62,"Concur":78,"isomorph/object":87}],72:[function(require,module,exports){
+},{"./SubWidget":62,"Concur":78,"isomorph/object":84}],72:[function(require,module,exports){
 'use strict';
 
 module.exports = {
@@ -6865,7 +6869,7 @@ module.exports = {
   getFormat: getFormat
 }
 
-},{"./locales":76,"isomorph/object":87}],75:[function(require,module,exports){
+},{"./locales":76,"isomorph/object":84}],75:[function(require,module,exports){
 'use strict';
 
 var is = require('isomorph/is')
@@ -6884,7 +6888,7 @@ function isFormAsync(constructor) {
 }
 
 module.exports = isFormAsync
-},{"isomorph/is":86}],76:[function(require,module,exports){
+},{"isomorph/is":83}],76:[function(require,module,exports){
 'use strict';
 
 var object = require('isomorph/object')
@@ -7018,7 +7022,7 @@ module.exports = {
 , setDefaultLocale: setDefaultLocale
 }
 
-},{"isomorph/object":87,"isomorph/time":88}],77:[function(require,module,exports){
+},{"isomorph/object":84,"isomorph/time":85}],77:[function(require,module,exports){
 'use strict';
 
 var getFormData = require('get-form-data')
@@ -7397,7 +7401,7 @@ module.exports = {
 , warning: warning
 }
 
-},{"get-form-data":83,"isomorph/is":86,"isomorph/object":87}],78:[function(require,module,exports){
+},{"get-form-data":80,"isomorph/is":83,"isomorph/object":84}],78:[function(require,module,exports){
 'use strict';
 
 var hasOwn = Object.prototype.hasOwnProperty
@@ -8058,160 +8062,6 @@ Concur.extend = function(prototypeProps, constructorProps) {
 }(this));
 
 },{}],80:[function(require,module,exports){
-"use strict";
-
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- * 
- */
-
-function makeEmptyFunction(arg) {
-  return function () {
-    return arg;
-  };
-}
-
-/**
- * This function accepts and discards inputs; it has no side effects. This is
- * primarily useful idiomatically for overridable function endpoints which
- * always need to be callable, since JS lacks a null-call idiom ala Cocoa.
- */
-var emptyFunction = function emptyFunction() {};
-
-emptyFunction.thatReturns = makeEmptyFunction;
-emptyFunction.thatReturnsFalse = makeEmptyFunction(false);
-emptyFunction.thatReturnsTrue = makeEmptyFunction(true);
-emptyFunction.thatReturnsNull = makeEmptyFunction(null);
-emptyFunction.thatReturnsThis = function () {
-  return this;
-};
-emptyFunction.thatReturnsArgument = function (arg) {
-  return arg;
-};
-
-module.exports = emptyFunction;
-},{}],81:[function(require,module,exports){
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- */
-
-'use strict';
-
-/**
- * Use invariant() to assert state which your program assumes to be true.
- *
- * Provide sprintf-style format (only %s is supported) and arguments
- * to provide information about what broke and what you were
- * expecting.
- *
- * The invariant message will be stripped in production, but the invariant
- * will remain to ensure logic does not differ in production.
- */
-
-var validateFormat = function validateFormat(format) {};
-
-if ("development" !== 'production') {
-  validateFormat = function validateFormat(format) {
-    if (format === undefined) {
-      throw new Error('invariant requires an error message argument');
-    }
-  };
-}
-
-function invariant(condition, format, a, b, c, d, e, f) {
-  validateFormat(format);
-
-  if (!condition) {
-    var error;
-    if (format === undefined) {
-      error = new Error('Minified exception occurred; use the non-minified dev environment ' + 'for the full error message and additional helpful warnings.');
-    } else {
-      var args = [a, b, c, d, e, f];
-      var argIndex = 0;
-      error = new Error(format.replace(/%s/g, function () {
-        return args[argIndex++];
-      }));
-      error.name = 'Invariant Violation';
-    }
-
-    error.framesToPop = 1; // we don't care about invariant's own frame
-    throw error;
-  }
-}
-
-module.exports = invariant;
-},{}],82:[function(require,module,exports){
-/**
- * Copyright (c) 2014-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- */
-
-'use strict';
-
-var emptyFunction = require('./emptyFunction');
-
-/**
- * Similar to invariant but only logs a warning if the condition is not met.
- * This can be used to log issues in development environments in critical
- * paths. Removing the logging code for production environments will keep the
- * same logic and follow the same code paths.
- */
-
-var warning = emptyFunction;
-
-if ("development" !== 'production') {
-  var printWarning = function printWarning(format) {
-    for (var _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-      args[_key - 1] = arguments[_key];
-    }
-
-    var argIndex = 0;
-    var message = 'Warning: ' + format.replace(/%s/g, function () {
-      return args[argIndex++];
-    });
-    if (typeof console !== 'undefined') {
-      console.error(message);
-    }
-    try {
-      // --- Welcome to debugging React ---
-      // This error was thrown as a convenience so that you can use this stack
-      // to find the callsite that caused this warning to fire.
-      throw new Error(message);
-    } catch (x) {}
-  };
-
-  warning = function warning(condition, format) {
-    if (format === undefined) {
-      throw new Error('`warning(condition, format, ...args)` requires a warning ' + 'message argument');
-    }
-
-    if (format.indexOf('Failed Composite propType: ') === 0) {
-      return; // Ignore CompositeComponent proptype check.
-    }
-
-    if (!condition) {
-      for (var _len2 = arguments.length, args = Array(_len2 > 2 ? _len2 - 2 : 0), _key2 = 2; _key2 < _len2; _key2++) {
-        args[_key2 - 2] = arguments[_key2];
-      }
-
-      printWarning.apply(undefined, [format].concat(args));
-    }
-  };
-}
-
-module.exports = warning;
-},{"./emptyFunction":80}],83:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -8396,7 +8246,7 @@ getFormData.getNamedFormElementData = getNamedFormElementData;
 
 exports['default'] = getFormData;
 module.exports = exports['default'];
-},{}],84:[function(require,module,exports){
+},{}],81:[function(require,module,exports){
 'use strict';
 
 var hasOwn = Object.prototype.hasOwnProperty
@@ -8742,7 +8592,7 @@ module.exports = {
 , deepCopy: deepCopy
 }
 
-},{}],85:[function(require,module,exports){
+},{}],82:[function(require,module,exports){
 'use strict';
 
 var slice = Array.prototype.slice
@@ -8799,7 +8649,7 @@ module.exports = {
 , fileSize: fileSize
 }
 
-},{}],86:[function(require,module,exports){
+},{}],83:[function(require,module,exports){
 'use strict';
 
 var toString = Object.prototype.toString
@@ -8867,7 +8717,7 @@ module.exports = {
 , String: isString
 }
 
-},{}],87:[function(require,module,exports){
+},{}],84:[function(require,module,exports){
 'use strict';
 
 /**
@@ -9013,7 +8863,7 @@ module.exports = {
 , setDefault: setDefault
 }
 
-},{}],88:[function(require,module,exports){
+},{}],85:[function(require,module,exports){
 'use strict';
 
 var is = require('./is')
@@ -9366,7 +9216,7 @@ time.strftime = function(date, format, locale) {
 
 module.exports = time
 
-},{"./is":86}],89:[function(require,module,exports){
+},{"./is":83}],86:[function(require,module,exports){
 'use strict';
 
 // parseUri 1.2.2
@@ -9457,7 +9307,7 @@ module.exports = {
 , makeUri: makeUri
 }
 
-},{}],90:[function(require,module,exports){
+},{}],87:[function(require,module,exports){
 /*
 object-assign
 (c) Sindre Sorhus
@@ -9549,7 +9399,7 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 	return to;
 };
 
-},{}],91:[function(require,module,exports){
+},{}],88:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -9559,11 +9409,25 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 
 'use strict';
 
+var printWarning = function() {};
+
 if ("development" !== 'production') {
-  var invariant = require('fbjs/lib/invariant');
-  var warning = require('fbjs/lib/warning');
   var ReactPropTypesSecret = require('./lib/ReactPropTypesSecret');
   var loggedTypeFailures = {};
+  var has = Function.call.bind(Object.prototype.hasOwnProperty);
+
+  printWarning = function(text) {
+    var message = 'Warning: ' + text;
+    if (typeof console !== 'undefined') {
+      console.error(message);
+    }
+    try {
+      // --- Welcome to debugging React ---
+      // This error was thrown as a convenience so that you can use this stack
+      // to find the callsite that caused this warning to fire.
+      throw new Error(message);
+    } catch (x) {}
+  };
 }
 
 /**
@@ -9580,7 +9444,7 @@ if ("development" !== 'production') {
 function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
   if ("development" !== 'production') {
     for (var typeSpecName in typeSpecs) {
-      if (typeSpecs.hasOwnProperty(typeSpecName)) {
+      if (has(typeSpecs, typeSpecName)) {
         var error;
         // Prop type validation may throw. In case they do, we don't want to
         // fail the render phase where it didn't fail before. So we log it.
@@ -9588,12 +9452,28 @@ function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
         try {
           // This is intentionally an invariant that gets caught. It's the same
           // behavior as without this statement except with a better message.
-          invariant(typeof typeSpecs[typeSpecName] === 'function', '%s: %s type `%s` is invalid; it must be a function, usually from ' + 'the `prop-types` package, but received `%s`.', componentName || 'React class', location, typeSpecName, typeof typeSpecs[typeSpecName]);
+          if (typeof typeSpecs[typeSpecName] !== 'function') {
+            var err = Error(
+              (componentName || 'React class') + ': ' + location + ' type `' + typeSpecName + '` is invalid; ' +
+              'it must be a function, usually from the `prop-types` package, but received `' + typeof typeSpecs[typeSpecName] + '`.'
+            );
+            err.name = 'Invariant Violation';
+            throw err;
+          }
           error = typeSpecs[typeSpecName](values, typeSpecName, componentName, location, null, ReactPropTypesSecret);
         } catch (ex) {
           error = ex;
         }
-        warning(!error || error instanceof Error, '%s: type specification of %s `%s` is invalid; the type checker ' + 'function must return `null` or an `Error` but returned a %s. ' + 'You may have forgotten to pass an argument to the type checker ' + 'creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and ' + 'shape all require an argument).', componentName || 'React class', location, typeSpecName, typeof error);
+        if (error && !(error instanceof Error)) {
+          printWarning(
+            (componentName || 'React class') + ': type specification of ' +
+            location + ' `' + typeSpecName + '` is invalid; the type checker ' +
+            'function must return `null` or an `Error` but returned a ' + typeof error + '. ' +
+            'You may have forgotten to pass an argument to the type checker ' +
+            'creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and ' +
+            'shape all require an argument).'
+          );
+        }
         if (error instanceof Error && !(error.message in loggedTypeFailures)) {
           // Only monitor this failure once because there tends to be a lot of the
           // same error.
@@ -9601,16 +9481,29 @@ function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
 
           var stack = getStack ? getStack() : '';
 
-          warning(false, 'Failed %s type: %s%s', location, error.message, stack != null ? stack : '');
+          printWarning(
+            'Failed ' + location + ' type: ' + error.message + (stack != null ? stack : '')
+          );
         }
       }
     }
   }
 }
 
+/**
+ * Resets warning cache when testing.
+ *
+ * @private
+ */
+checkPropTypes.resetWarningCache = function() {
+  if ("development" !== 'production') {
+    loggedTypeFailures = {};
+  }
+}
+
 module.exports = checkPropTypes;
 
-},{"./lib/ReactPropTypesSecret":95,"fbjs/lib/invariant":81,"fbjs/lib/warning":82}],92:[function(require,module,exports){
+},{"./lib/ReactPropTypesSecret":92}],89:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -9620,9 +9513,11 @@ module.exports = checkPropTypes;
 
 'use strict';
 
-var emptyFunction = require('fbjs/lib/emptyFunction');
-var invariant = require('fbjs/lib/invariant');
 var ReactPropTypesSecret = require('./lib/ReactPropTypesSecret');
+
+function emptyFunction() {}
+function emptyFunctionWithReset() {}
+emptyFunctionWithReset.resetWarningCache = emptyFunction;
 
 module.exports = function() {
   function shim(props, propName, componentName, location, propFullName, secret) {
@@ -9630,12 +9525,13 @@ module.exports = function() {
       // It is still safe when called from React.
       return;
     }
-    invariant(
-      false,
+    var err = new Error(
       'Calling PropTypes validators directly is not supported by the `prop-types` package. ' +
       'Use PropTypes.checkPropTypes() to call them. ' +
       'Read more at http://fb.me/use-check-prop-types'
     );
+    err.name = 'Invariant Violation';
+    throw err;
   };
   shim.isRequired = shim;
   function getShim() {
@@ -9655,22 +9551,25 @@ module.exports = function() {
     any: shim,
     arrayOf: getShim,
     element: shim,
+    elementType: shim,
     instanceOf: getShim,
     node: shim,
     objectOf: getShim,
     oneOf: getShim,
     oneOfType: getShim,
     shape: getShim,
-    exact: getShim
+    exact: getShim,
+
+    checkPropTypes: emptyFunctionWithReset,
+    resetWarningCache: emptyFunction
   };
 
-  ReactPropTypes.checkPropTypes = emptyFunction;
   ReactPropTypes.PropTypes = ReactPropTypes;
 
   return ReactPropTypes;
 };
 
-},{"./lib/ReactPropTypesSecret":95,"fbjs/lib/emptyFunction":80,"fbjs/lib/invariant":81}],93:[function(require,module,exports){
+},{"./lib/ReactPropTypesSecret":92}],90:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -9680,13 +9579,33 @@ module.exports = function() {
 
 'use strict';
 
-var emptyFunction = require('fbjs/lib/emptyFunction');
-var invariant = require('fbjs/lib/invariant');
-var warning = require('fbjs/lib/warning');
+var ReactIs = require('react-is');
 var assign = require('object-assign');
 
 var ReactPropTypesSecret = require('./lib/ReactPropTypesSecret');
 var checkPropTypes = require('./checkPropTypes');
+
+var has = Function.call.bind(Object.prototype.hasOwnProperty);
+var printWarning = function() {};
+
+if ("development" !== 'production') {
+  printWarning = function(text) {
+    var message = 'Warning: ' + text;
+    if (typeof console !== 'undefined') {
+      console.error(message);
+    }
+    try {
+      // --- Welcome to debugging React ---
+      // This error was thrown as a convenience so that you can use this stack
+      // to find the callsite that caused this warning to fire.
+      throw new Error(message);
+    } catch (x) {}
+  };
+}
+
+function emptyFunctionThatReturnsNull() {
+  return null;
+}
 
 module.exports = function(isValidElement, throwOnDirectAccess) {
   /* global Symbol */
@@ -9777,6 +9696,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
     any: createAnyTypeChecker(),
     arrayOf: createArrayOfTypeChecker,
     element: createElementTypeChecker(),
+    elementType: createElementTypeTypeChecker(),
     instanceOf: createInstanceTypeChecker,
     node: createNodeChecker(),
     objectOf: createObjectOfTypeChecker,
@@ -9830,12 +9750,13 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
       if (secret !== ReactPropTypesSecret) {
         if (throwOnDirectAccess) {
           // New behavior only for users of `prop-types` package
-          invariant(
-            false,
+          var err = new Error(
             'Calling PropTypes validators directly is not supported by the `prop-types` package. ' +
             'Use `PropTypes.checkPropTypes()` to call them. ' +
             'Read more at http://fb.me/use-check-prop-types'
           );
+          err.name = 'Invariant Violation';
+          throw err;
         } else if ("development" !== 'production' && typeof console !== 'undefined') {
           // Old behavior for people using React.PropTypes
           var cacheKey = componentName + ':' + propName;
@@ -9844,15 +9765,12 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
             // Avoid spamming the console because they are often not actionable except for lib authors
             manualPropTypeWarningCount < 3
           ) {
-            warning(
-              false,
+            printWarning(
               'You are manually calling a React.PropTypes validation ' +
-              'function for the `%s` prop on `%s`. This is deprecated ' +
+              'function for the `' + propFullName + '` prop on `' + componentName  + '`. This is deprecated ' +
               'and will throw in the standalone `prop-types` package. ' +
               'You may be seeing this warning due to a third-party PropTypes ' +
-              'library. See https://fb.me/react-warning-dont-call-proptypes ' + 'for details.',
-              propFullName,
-              componentName
+              'library. See https://fb.me/react-warning-dont-call-proptypes ' + 'for details.'
             );
             manualPropTypeCallCache[cacheKey] = true;
             manualPropTypeWarningCount++;
@@ -9896,7 +9814,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
   }
 
   function createAnyTypeChecker() {
-    return createChainableTypeChecker(emptyFunction.thatReturnsNull);
+    return createChainableTypeChecker(emptyFunctionThatReturnsNull);
   }
 
   function createArrayOfTypeChecker(typeChecker) {
@@ -9932,6 +9850,18 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
     return createChainableTypeChecker(validate);
   }
 
+  function createElementTypeTypeChecker() {
+    function validate(props, propName, componentName, location, propFullName) {
+      var propValue = props[propName];
+      if (!ReactIs.isValidElementType(propValue)) {
+        var propType = getPropType(propValue);
+        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected a single ReactElement type.'));
+      }
+      return null;
+    }
+    return createChainableTypeChecker(validate);
+  }
+
   function createInstanceTypeChecker(expectedClass) {
     function validate(props, propName, componentName, location, propFullName) {
       if (!(props[propName] instanceof expectedClass)) {
@@ -9946,8 +9876,17 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
 
   function createEnumTypeChecker(expectedValues) {
     if (!Array.isArray(expectedValues)) {
-      "development" !== 'production' ? warning(false, 'Invalid argument supplied to oneOf, expected an instance of array.') : void 0;
-      return emptyFunction.thatReturnsNull;
+      if ("development" !== 'production') {
+        if (arguments.length > 1) {
+          printWarning(
+            'Invalid arguments supplied to oneOf, expected an array, got ' + arguments.length + ' arguments. ' +
+            'A common mistake is to write oneOf(x, y, z) instead of oneOf([x, y, z]).'
+          );
+        } else {
+          printWarning('Invalid argument supplied to oneOf, expected an array.');
+        }
+      }
+      return emptyFunctionThatReturnsNull;
     }
 
     function validate(props, propName, componentName, location, propFullName) {
@@ -9958,8 +9897,14 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
         }
       }
 
-      var valuesString = JSON.stringify(expectedValues);
-      return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of value `' + propValue + '` ' + ('supplied to `' + componentName + '`, expected one of ' + valuesString + '.'));
+      var valuesString = JSON.stringify(expectedValues, function replacer(key, value) {
+        var type = getPreciseType(value);
+        if (type === 'symbol') {
+          return String(value);
+        }
+        return value;
+      });
+      return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of value `' + String(propValue) + '` ' + ('supplied to `' + componentName + '`, expected one of ' + valuesString + '.'));
     }
     return createChainableTypeChecker(validate);
   }
@@ -9975,7 +9920,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
         return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected an object.'));
       }
       for (var key in propValue) {
-        if (propValue.hasOwnProperty(key)) {
+        if (has(propValue, key)) {
           var error = typeChecker(propValue, key, componentName, location, propFullName + '.' + key, ReactPropTypesSecret);
           if (error instanceof Error) {
             return error;
@@ -9989,21 +9934,18 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
 
   function createUnionTypeChecker(arrayOfTypeCheckers) {
     if (!Array.isArray(arrayOfTypeCheckers)) {
-      "development" !== 'production' ? warning(false, 'Invalid argument supplied to oneOfType, expected an instance of array.') : void 0;
-      return emptyFunction.thatReturnsNull;
+      "development" !== 'production' ? printWarning('Invalid argument supplied to oneOfType, expected an instance of array.') : void 0;
+      return emptyFunctionThatReturnsNull;
     }
 
     for (var i = 0; i < arrayOfTypeCheckers.length; i++) {
       var checker = arrayOfTypeCheckers[i];
       if (typeof checker !== 'function') {
-        warning(
-          false,
+        printWarning(
           'Invalid argument supplied to oneOfType. Expected an array of check functions, but ' +
-          'received %s at index %s.',
-          getPostfixForTypeWarning(checker),
-          i
+          'received ' + getPostfixForTypeWarning(checker) + ' at index ' + i + '.'
         );
-        return emptyFunction.thatReturnsNull;
+        return emptyFunctionThatReturnsNull;
       }
     }
 
@@ -10135,6 +10077,11 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
       return true;
     }
 
+    // falsy value can't be a Symbol
+    if (!propValue) {
+      return false;
+    }
+
     // 19.4.3.5 Symbol.prototype[@@toStringTag] === 'Symbol'
     if (propValue['@@toStringTag'] === 'Symbol') {
       return true;
@@ -10209,12 +10156,13 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
   }
 
   ReactPropTypes.checkPropTypes = checkPropTypes;
+  ReactPropTypes.resetWarningCache = checkPropTypes.resetWarningCache;
   ReactPropTypes.PropTypes = ReactPropTypes;
 
   return ReactPropTypes;
 };
 
-},{"./checkPropTypes":91,"./lib/ReactPropTypesSecret":95,"fbjs/lib/emptyFunction":80,"fbjs/lib/invariant":81,"fbjs/lib/warning":82,"object-assign":90}],94:[function(require,module,exports){
+},{"./checkPropTypes":88,"./lib/ReactPropTypesSecret":92,"object-assign":87,"react-is":95}],91:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -10223,28 +10171,19 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
  */
 
 if ("development" !== 'production') {
-  var REACT_ELEMENT_TYPE = (typeof Symbol === 'function' &&
-    Symbol.for &&
-    Symbol.for('react.element')) ||
-    0xeac7;
-
-  var isValidElement = function(object) {
-    return typeof object === 'object' &&
-      object !== null &&
-      object.$$typeof === REACT_ELEMENT_TYPE;
-  };
+  var ReactIs = require('react-is');
 
   // By explicitly using `prop-types` you are opting into new development behavior.
   // http://fb.me/prop-types-in-prod
   var throwOnDirectAccess = true;
-  module.exports = require('./factoryWithTypeCheckers')(isValidElement, throwOnDirectAccess);
+  module.exports = require('./factoryWithTypeCheckers')(ReactIs.isElement, throwOnDirectAccess);
 } else {
   // By explicitly using `prop-types` you are opting into new production behavior.
   // http://fb.me/prop-types-in-prod
   module.exports = require('./factoryWithThrowingShims')();
 }
 
-},{"./factoryWithThrowingShims":92,"./factoryWithTypeCheckers":93}],95:[function(require,module,exports){
+},{"./factoryWithThrowingShims":89,"./factoryWithTypeCheckers":90,"react-is":95}],92:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -10258,7 +10197,262 @@ var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
 
 module.exports = ReactPropTypesSecret;
 
-},{}],96:[function(require,module,exports){
+},{}],93:[function(require,module,exports){
+/** @license React v16.8.6
+ * react-is.development.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+'use strict';
+
+
+
+if (process.env.NODE_ENV !== "production") {
+  (function() {
+'use strict';
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
+// The Symbol used to tag the ReactElement-like types. If there is no native Symbol
+// nor polyfill, then a plain number is used for performance.
+var hasSymbol = typeof Symbol === 'function' && Symbol.for;
+
+var REACT_ELEMENT_TYPE = hasSymbol ? Symbol.for('react.element') : 0xeac7;
+var REACT_PORTAL_TYPE = hasSymbol ? Symbol.for('react.portal') : 0xeaca;
+var REACT_FRAGMENT_TYPE = hasSymbol ? Symbol.for('react.fragment') : 0xeacb;
+var REACT_STRICT_MODE_TYPE = hasSymbol ? Symbol.for('react.strict_mode') : 0xeacc;
+var REACT_PROFILER_TYPE = hasSymbol ? Symbol.for('react.profiler') : 0xead2;
+var REACT_PROVIDER_TYPE = hasSymbol ? Symbol.for('react.provider') : 0xeacd;
+var REACT_CONTEXT_TYPE = hasSymbol ? Symbol.for('react.context') : 0xeace;
+var REACT_ASYNC_MODE_TYPE = hasSymbol ? Symbol.for('react.async_mode') : 0xeacf;
+var REACT_CONCURRENT_MODE_TYPE = hasSymbol ? Symbol.for('react.concurrent_mode') : 0xeacf;
+var REACT_FORWARD_REF_TYPE = hasSymbol ? Symbol.for('react.forward_ref') : 0xead0;
+var REACT_SUSPENSE_TYPE = hasSymbol ? Symbol.for('react.suspense') : 0xead1;
+var REACT_MEMO_TYPE = hasSymbol ? Symbol.for('react.memo') : 0xead3;
+var REACT_LAZY_TYPE = hasSymbol ? Symbol.for('react.lazy') : 0xead4;
+
+function isValidElementType(type) {
+  return typeof type === 'string' || typeof type === 'function' ||
+  // Note: its typeof might be other than 'symbol' or 'number' if it's a polyfill.
+  type === REACT_FRAGMENT_TYPE || type === REACT_CONCURRENT_MODE_TYPE || type === REACT_PROFILER_TYPE || type === REACT_STRICT_MODE_TYPE || type === REACT_SUSPENSE_TYPE || typeof type === 'object' && type !== null && (type.$$typeof === REACT_LAZY_TYPE || type.$$typeof === REACT_MEMO_TYPE || type.$$typeof === REACT_PROVIDER_TYPE || type.$$typeof === REACT_CONTEXT_TYPE || type.$$typeof === REACT_FORWARD_REF_TYPE);
+}
+
+/**
+ * Forked from fbjs/warning:
+ * https://github.com/facebook/fbjs/blob/e66ba20ad5be433eb54423f2b097d829324d9de6/packages/fbjs/src/__forks__/warning.js
+ *
+ * Only change is we use console.warn instead of console.error,
+ * and do nothing when 'console' is not supported.
+ * This really simplifies the code.
+ * ---
+ * Similar to invariant but only logs a warning if the condition is not met.
+ * This can be used to log issues in development environments in critical
+ * paths. Removing the logging code for production environments will keep the
+ * same logic and follow the same code paths.
+ */
+
+var lowPriorityWarning = function () {};
+
+{
+  var printWarning = function (format) {
+    for (var _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+      args[_key - 1] = arguments[_key];
+    }
+
+    var argIndex = 0;
+    var message = 'Warning: ' + format.replace(/%s/g, function () {
+      return args[argIndex++];
+    });
+    if (typeof console !== 'undefined') {
+      console.warn(message);
+    }
+    try {
+      // --- Welcome to debugging React ---
+      // This error was thrown as a convenience so that you can use this stack
+      // to find the callsite that caused this warning to fire.
+      throw new Error(message);
+    } catch (x) {}
+  };
+
+  lowPriorityWarning = function (condition, format) {
+    if (format === undefined) {
+      throw new Error('`lowPriorityWarning(condition, format, ...args)` requires a warning ' + 'message argument');
+    }
+    if (!condition) {
+      for (var _len2 = arguments.length, args = Array(_len2 > 2 ? _len2 - 2 : 0), _key2 = 2; _key2 < _len2; _key2++) {
+        args[_key2 - 2] = arguments[_key2];
+      }
+
+      printWarning.apply(undefined, [format].concat(args));
+    }
+  };
+}
+
+var lowPriorityWarning$1 = lowPriorityWarning;
+
+function typeOf(object) {
+  if (typeof object === 'object' && object !== null) {
+    var $$typeof = object.$$typeof;
+    switch ($$typeof) {
+      case REACT_ELEMENT_TYPE:
+        var type = object.type;
+
+        switch (type) {
+          case REACT_ASYNC_MODE_TYPE:
+          case REACT_CONCURRENT_MODE_TYPE:
+          case REACT_FRAGMENT_TYPE:
+          case REACT_PROFILER_TYPE:
+          case REACT_STRICT_MODE_TYPE:
+          case REACT_SUSPENSE_TYPE:
+            return type;
+          default:
+            var $$typeofType = type && type.$$typeof;
+
+            switch ($$typeofType) {
+              case REACT_CONTEXT_TYPE:
+              case REACT_FORWARD_REF_TYPE:
+              case REACT_PROVIDER_TYPE:
+                return $$typeofType;
+              default:
+                return $$typeof;
+            }
+        }
+      case REACT_LAZY_TYPE:
+      case REACT_MEMO_TYPE:
+      case REACT_PORTAL_TYPE:
+        return $$typeof;
+    }
+  }
+
+  return undefined;
+}
+
+// AsyncMode is deprecated along with isAsyncMode
+var AsyncMode = REACT_ASYNC_MODE_TYPE;
+var ConcurrentMode = REACT_CONCURRENT_MODE_TYPE;
+var ContextConsumer = REACT_CONTEXT_TYPE;
+var ContextProvider = REACT_PROVIDER_TYPE;
+var Element = REACT_ELEMENT_TYPE;
+var ForwardRef = REACT_FORWARD_REF_TYPE;
+var Fragment = REACT_FRAGMENT_TYPE;
+var Lazy = REACT_LAZY_TYPE;
+var Memo = REACT_MEMO_TYPE;
+var Portal = REACT_PORTAL_TYPE;
+var Profiler = REACT_PROFILER_TYPE;
+var StrictMode = REACT_STRICT_MODE_TYPE;
+var Suspense = REACT_SUSPENSE_TYPE;
+
+var hasWarnedAboutDeprecatedIsAsyncMode = false;
+
+// AsyncMode should be deprecated
+function isAsyncMode(object) {
+  {
+    if (!hasWarnedAboutDeprecatedIsAsyncMode) {
+      hasWarnedAboutDeprecatedIsAsyncMode = true;
+      lowPriorityWarning$1(false, 'The ReactIs.isAsyncMode() alias has been deprecated, ' + 'and will be removed in React 17+. Update your code to use ' + 'ReactIs.isConcurrentMode() instead. It has the exact same API.');
+    }
+  }
+  return isConcurrentMode(object) || typeOf(object) === REACT_ASYNC_MODE_TYPE;
+}
+function isConcurrentMode(object) {
+  return typeOf(object) === REACT_CONCURRENT_MODE_TYPE;
+}
+function isContextConsumer(object) {
+  return typeOf(object) === REACT_CONTEXT_TYPE;
+}
+function isContextProvider(object) {
+  return typeOf(object) === REACT_PROVIDER_TYPE;
+}
+function isElement(object) {
+  return typeof object === 'object' && object !== null && object.$$typeof === REACT_ELEMENT_TYPE;
+}
+function isForwardRef(object) {
+  return typeOf(object) === REACT_FORWARD_REF_TYPE;
+}
+function isFragment(object) {
+  return typeOf(object) === REACT_FRAGMENT_TYPE;
+}
+function isLazy(object) {
+  return typeOf(object) === REACT_LAZY_TYPE;
+}
+function isMemo(object) {
+  return typeOf(object) === REACT_MEMO_TYPE;
+}
+function isPortal(object) {
+  return typeOf(object) === REACT_PORTAL_TYPE;
+}
+function isProfiler(object) {
+  return typeOf(object) === REACT_PROFILER_TYPE;
+}
+function isStrictMode(object) {
+  return typeOf(object) === REACT_STRICT_MODE_TYPE;
+}
+function isSuspense(object) {
+  return typeOf(object) === REACT_SUSPENSE_TYPE;
+}
+
+exports.typeOf = typeOf;
+exports.AsyncMode = AsyncMode;
+exports.ConcurrentMode = ConcurrentMode;
+exports.ContextConsumer = ContextConsumer;
+exports.ContextProvider = ContextProvider;
+exports.Element = Element;
+exports.ForwardRef = ForwardRef;
+exports.Fragment = Fragment;
+exports.Lazy = Lazy;
+exports.Memo = Memo;
+exports.Portal = Portal;
+exports.Profiler = Profiler;
+exports.StrictMode = StrictMode;
+exports.Suspense = Suspense;
+exports.isValidElementType = isValidElementType;
+exports.isAsyncMode = isAsyncMode;
+exports.isConcurrentMode = isConcurrentMode;
+exports.isContextConsumer = isContextConsumer;
+exports.isContextProvider = isContextProvider;
+exports.isElement = isElement;
+exports.isForwardRef = isForwardRef;
+exports.isFragment = isFragment;
+exports.isLazy = isLazy;
+exports.isMemo = isMemo;
+exports.isPortal = isPortal;
+exports.isProfiler = isProfiler;
+exports.isStrictMode = isStrictMode;
+exports.isSuspense = isSuspense;
+  })();
+}
+
+},{}],94:[function(require,module,exports){
+/** @license React v16.8.6
+ * react-is.production.min.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+'use strict';Object.defineProperty(exports,"__esModule",{value:!0});
+var b="function"===typeof Symbol&&Symbol.for,c=b?Symbol.for("react.element"):60103,d=b?Symbol.for("react.portal"):60106,e=b?Symbol.for("react.fragment"):60107,f=b?Symbol.for("react.strict_mode"):60108,g=b?Symbol.for("react.profiler"):60114,h=b?Symbol.for("react.provider"):60109,k=b?Symbol.for("react.context"):60110,l=b?Symbol.for("react.async_mode"):60111,m=b?Symbol.for("react.concurrent_mode"):60111,n=b?Symbol.for("react.forward_ref"):60112,p=b?Symbol.for("react.suspense"):60113,q=b?Symbol.for("react.memo"):
+60115,r=b?Symbol.for("react.lazy"):60116;function t(a){if("object"===typeof a&&null!==a){var u=a.$$typeof;switch(u){case c:switch(a=a.type,a){case l:case m:case e:case g:case f:case p:return a;default:switch(a=a&&a.$$typeof,a){case k:case n:case h:return a;default:return u}}case r:case q:case d:return u}}}function v(a){return t(a)===m}exports.typeOf=t;exports.AsyncMode=l;exports.ConcurrentMode=m;exports.ContextConsumer=k;exports.ContextProvider=h;exports.Element=c;exports.ForwardRef=n;
+exports.Fragment=e;exports.Lazy=r;exports.Memo=q;exports.Portal=d;exports.Profiler=g;exports.StrictMode=f;exports.Suspense=p;exports.isValidElementType=function(a){return"string"===typeof a||"function"===typeof a||a===e||a===m||a===g||a===f||a===p||"object"===typeof a&&null!==a&&(a.$$typeof===r||a.$$typeof===q||a.$$typeof===h||a.$$typeof===k||a.$$typeof===n)};exports.isAsyncMode=function(a){return v(a)||t(a)===l};exports.isConcurrentMode=v;exports.isContextConsumer=function(a){return t(a)===k};
+exports.isContextProvider=function(a){return t(a)===h};exports.isElement=function(a){return"object"===typeof a&&null!==a&&a.$$typeof===c};exports.isForwardRef=function(a){return t(a)===n};exports.isFragment=function(a){return t(a)===e};exports.isLazy=function(a){return t(a)===r};exports.isMemo=function(a){return t(a)===q};exports.isPortal=function(a){return t(a)===d};exports.isProfiler=function(a){return t(a)===g};exports.isStrictMode=function(a){return t(a)===f};
+exports.isSuspense=function(a){return t(a)===p};
+
+},{}],95:[function(require,module,exports){
+'use strict';
+
+if (process.env.NODE_ENV === 'production') {
+  module.exports = require('./cjs/react-is.production.min.js');
+} else {
+  module.exports = require('./cjs/react-is.development.js');
+}
+
+},{"./cjs/react-is.development.js":93,"./cjs/react-is.production.min.js":94}],96:[function(require,module,exports){
 'use strict';
 
 var Concur = require('Concur')
@@ -10421,7 +10615,7 @@ module.exports = {
   ValidationError: ValidationError
 }
 
-},{"Concur":78,"isomorph/format":85,"isomorph/is":86,"isomorph/object":87}],97:[function(require,module,exports){
+},{"Concur":78,"isomorph/format":82,"isomorph/is":83,"isomorph/object":84}],97:[function(require,module,exports){
 'use strict';
 
 // HACK: requiring './validators' here makes the circular import in ipv6.js work
@@ -10711,7 +10905,7 @@ module.exports = {
 , isValidIPv6Address: isValidIPv6Address
 }
 
-},{"./errors":96,"./validators":99,"isomorph/object":87}],99:[function(require,module,exports){
+},{"./errors":96,"./validators":99,"isomorph/object":84}],99:[function(require,module,exports){
 'use strict';
 
 var Concur = require('Concur')
@@ -11057,5 +11251,5 @@ module.exports = {
 , ipv6: ipv6
 }
 
-},{"./errors":96,"./ipv6":98,"Concur":78,"isomorph/is":86,"isomorph/object":87,"isomorph/url":89,"punycode":79}]},{},[1])(1)
+},{"./errors":96,"./ipv6":98,"Concur":78,"isomorph/is":83,"isomorph/object":84,"isomorph/url":86,"punycode":79}]},{},[1])(1)
 });
